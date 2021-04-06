@@ -1,0 +1,18 @@
+h1 {
+  font-family: courier new;
+  color: grey;
+  font-size: 28px;
+  user-select: none;
+  cursor: default;
+}
+a {
+  color: black;
+  text-decoration: none;
+  font-family: courier new;
+  font-size: 17px;
+  cursor: pointer;
+  user-select: none;
+}
+a:hover {
+  text-decoration: underline;
+}
