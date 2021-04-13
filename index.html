@@ -2,11 +2,13 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="Description" content="Photon: free online resources for a variety of things." />
+<meta name="Description" content="Photon: free online resources for a variety of things." />
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-  <title>Photon | Home</title>
-<link rel='icon' href='P' type='image/png'/ > 
+<title>Photon | Home</title>
+<link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/ > 
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
 <style>
 * {
 font-family: 'Ubuntu', sans-serif;
@@ -18,6 +20,7 @@ left: 0px;
 width: 100%;
 height: 80px;
 background: #4376A6;
+z-index: 1;
 }
 .navButton {
 height: 60px;
@@ -50,34 +53,97 @@ font-size: 30px;
 #about {
 position: absolute;
 top: 10px;
-left: 200px;
+left: 240px;
 }
 #services {
 position: absolute;
 top: 10px;
-left: 360px;
+left: 400px;
 }
-#divider {
+#apps {
 position: absolute;
-top: 0px;
-left: 170px;
-width: 1px;
-height: 80px;
-border: none;
-background: #EDEEF0;
-pointer-events: none;
+top: 10px;
+left: 560px;
+}
+#developer {
+position: absolute;
+top: 10px;
+left: 720px;
+}
+body {
+background: white;
+animation-name: background;
+animation-duration: 4.0s;
+animation-iteration-count: 1;
+}
+@keyframes background {
+ 
+  0% {background-color: #4376A6;}
+  100%   {background-color: white;}
+}
+#phrase {
+position: absolute;
+top: 30%;
+left: 0px;
+width: 100%;
+text-align: center;
+font-size: 50px;
+color: #4376A6;
+}
+#scroll {
+position: absolute;
+bottom: 10%;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background: #4376A6;
+color: white;
+border: 1px solid #4376A6;
+cursor: pointer;
+}
+#scroll:hover {
+background: transparent;
+color: #4376A6;
+}
+#scroll-center {
+position: absolute;
+left: 0px;
+width: 100%;
+text-align: center;
+bottom: 10%;
+}
+html {
+  scroll-behavior: smooth;
+}
+#text {
+position: absolute;
+top: 130%;
+left: 0px;
+width: 100%;
+text-align: center;
+font-size: 40px;
+color: #4376A6;
+}
+#img {
+width: 180px;
 }
 </style>
 </head>
 <body>
 <div id="nav">
-<button class="navButton" id="title">Photon</button>
-
-<button id="divider" hidden></button>
-
+<a href="https://lb123658.github.io">
+<button class="navButton" id="title">Photon</button></a>
 <button class="navButton" id="about">About</button>
 <button class="navButton" id="services">Services</button>
+<button class="navButton" id="apps">Web apps</button>
+<button class="navButton" id="developer">Developer</button>
 </div>
 
+<p id="phrase">Photon: making online easier.</p>
+
+<a href="#text">
+<p id="scroll-center"><button id="scroll"><span class="material-icons">south</span></button></p></a>
+
+<p id="text"><img src="https://lb123658.github.io/logo.png" id="img"/><br><br>More coming soon from Photon.<br><br>Code editors, website builders, search engines, and more.<br><br><br><br><br></p>
 </body>
 </html>
