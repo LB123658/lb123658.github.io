@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,17 +135,33 @@ left: 880px;
 width: 60px;
 padding: 15px;
 }
-
+#learn {
+height: 60px;
+border: 1px solid #EDEEF0;
+background: #4376A6;
+color: #EDEEF0;
+font-size: 25px;
+cursor: pointer;
+border-radius: 7px;
+width: 150px;
+}
+#learn:hover {
+background: #1A4B78;
+}
 </style>
 </head>
 <body>
 <div id="nav">
 <a href="https://lb123658.github.io">
 <button class="navButton" id="title">Photon</button></a>
-<button class="navButton" id="about">About</button>
-<button class="navButton" id="services">Services</button>
-<button class="navButton" id="apps">Web apps</button>
-<button class="navButton" id="developer">Developer</button>
+<a href="about">
+<button class="navButton" id="about">About</button></a>
+<a href="services">
+<button class="navButton" id="services">Services</button></a>
+<a href="apps">
+<button class="navButton" id="apps">Web apps</button></a>
+<a href="developer">
+<button class="navButton" id="developer">Developer</button></a>
 
 <a href="share">      
 <button class="navButton" id="share" title="Share this page"><span class="material-icons" style="font-size: 30px;">send</span></button>
@@ -156,6 +173,7 @@ padding: 15px;
 <a href="#text">
 <p id="scroll-center"><button id="scroll"><span class="material-icons">south</span></button></p></a>
 
-<p id="text"><img src="https://lb123658.github.io/logo.png" id="img"/><br><br>More coming soon from Photon.<br><br>Code editors, website builders, search engines, and more.<br><br><br><br><br></p>
+<p id="text"><img src="https://lb123658.github.io/logo.png" id="img"/><br><br>More coming soon from Photon.<br><br>Code editors, website builders, search engines, and more.<br><br>
+<a href="apps"><button id="learn">See all</button></a><br><br><br><br><br></p>
 </body>
 </html>
