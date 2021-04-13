@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="Photon: free online resources for a variety of things." />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<title>Photon web apps</title>
+<link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/ > 
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+<style>
+* {
+font-family: 'Ubuntu', sans-serif;
+}
+#nav {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 80px;
+background: #4376A6;
+z-index: 1;
+}
+.navButton {
+height: 60px;
+border: none;
+background: transparent;
+color: #EDEEF0;
+font-size: 25px;
+cursor: pointer;
+border-radius: 7px;
+width: 150px;
+}
+.navButton:hover {
+background: #1A4B78;
+animation-name: banana;
+animation-duration: 0.9s;
+animation-iteration-count: 1;
+}
+@keyframes banana {
+ 
+  0% {background-color: transparent;}
+  100%   {background-color: #1A4B78;}
+
+}
+#title {
+position: absolute;
+top: 10px;
+left: 10px;
+font-size: 30px;
+}
+#about {
+position: absolute;
+top: 10px;
+left: 240px;
+}
+#services {
+position: absolute;
+top: 10px;
+left: 400px;
+}
+#apps {
+position: absolute;
+top: 10px;
+left: 560px;
+}
+#developer {
+position: absolute;
+top: 10px;
+left: 720px;
+}
+#share {
+position: absolute;
+top: 10px;
+left: 880px;
+width: 60px;
+padding: 15px;
+}
+
+#phrase {
+position: absolute;
+top: 100px;
+left: 0px;
+width: 100%;
+text-align: center;
+color: #4376A6;
+font-size: 30px;
+}
+.container {
+height: 100px;
+width: 94%;
+border-radius: 10px;
+background: white;
+cursor: pointer;
+}
+.container:hover {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#a {
+position: absolute;
+top: 200px;
+left: 3%;
+}
+#img-a {
+position: absolute;
+top: 5px;
+left: 5px;
+width: 90px;
+height: 90px;
+}
+.caption {
+color: #4376A6;
+font-size: 17px;
+}
+#p-a {
+position: absolute;
+top: 0px;
+left: 110px;
+}
+</style>
+</head>
+<body>
+<div id="nav">
+<a href="https://lb123658.github.io">
+<button class="navButton" id="title">Photon</button></a>
+<a href="about">
+<button class="navButton" id="about">About</button></a>
+<a href="services">
+<button class="navButton" id="services">Services</button></a>
+<a href="apps">
+<button class="navButton" id="apps">Web apps</button></a>
+<a href="developer">
+<button class="navButton" id="developer">Developer</button></a>
+
+<a href="share">      
+<button class="navButton" id="share" title="Share this page"><span class="material-icons" style="font-size: 30px;">send</span></button>
+</a>
+</div>
+
+<p id="phrase">Photon web apps</p>
+
+<a href="https://lb123658.github.io/PrintableForms-Editor/" target="_blank">
+<div class="container" id="a">
+<img id="img-a" src="https://drive.google.com/thumbnail?id=1GkuLONytoggfFy2AkGK_pZz6SqAZCTOI"/>
+<p class="caption" id="p-a"><b>PF Editor Pro</b><br>Free online text editor with customizable colors, fonts, and text sizes.</p>
+</div></a>
+
+
+</body>
+</html>
