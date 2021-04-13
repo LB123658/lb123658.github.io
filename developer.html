@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="Photon: free online resources for a variety of things." />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<title>Photon developer tools</title>
+<link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/ > 
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+<style>
+* {
+font-family: 'Ubuntu', sans-serif;
+}
+#nav {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 80px;
+background: #4376A6;
+z-index: 1;
+}
+.navButton {
+height: 60px;
+border: none;
+background: transparent;
+color: #EDEEF0;
+font-size: 25px;
+cursor: pointer;
+border-radius: 7px;
+width: 150px;
+}
+.navButton:hover {
+background: #1A4B78;
+animation-name: banana;
+animation-duration: 0.9s;
+animation-iteration-count: 1;
+}
+@keyframes banana {
+ 
+  0% {background-color: transparent;}
+  100%   {background-color: #1A4B78;}
+
+}
+#title {
+position: absolute;
+top: 10px;
+left: 10px;
+font-size: 30px;
+}
+#about {
+position: absolute;
+top: 10px;
+left: 240px;
+}
+#services {
+position: absolute;
+top: 10px;
+left: 400px;
+}
+#apps {
+position: absolute;
+top: 10px;
+left: 560px;
+}
+#developer {
+position: absolute;
+top: 10px;
+left: 720px;
+}
+#share {
+position: absolute;
+top: 10px;
+left: 880px;
+width: 60px;
+padding: 15px;
+}
+
+#phrase {
+position: absolute;
+top: 100px;
+left: 0px;
+width: 100%;
+text-align: center;
+color: #4376A6;
+font-size: 30px;
+}
+.container {
+height: 100px;
+width: 84%;
+border-radius: 10px;
+background: white;
+cursor: pointer;
+}
+.container:hover {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#a {
+position: absolute;
+top: 200px;
+left: 3%;
+}
+#img-a {
+position: absolute;
+top: 5px;
+left: 5px;
+width: 90px;
+height: 90px;
+}
+.caption {
+color: #4376A6;
+font-size: 17px;
+}
+#p-a {
+position: absolute;
+top: 0px;
+left: 110px;
+}
+
+#b {
+position: absolute;
+top: 310px;
+left: 3%;
+}
+#img-b {
+position: absolute;
+top: 5px;
+left: 5px;
+width: 90px;
+height: 90px;
+}
+#p-b {
+position: absolute;
+top: 0px;
+left: 110px;
+}
+
+#c {
+position: absolute;
+top: 420px;
+left: 3%;
+}
+#img-c {
+position: absolute;
+top: 5px;
+left: 5px;
+width: 90px;
+height: 90px;
+}
+#p-c {
+position: absolute;
+top: 0px;
+left: 110px;
+}
+
+#d {
+position: absolute;
+top: 530px;
+left: 3%;
+}
+#img-d {
+position: absolute;
+top: 5px;
+left: 5px;
+width: 90px;
+height: 90px;
+}
+#p-d {
+position: absolute;
+top: 0px;
+left: 110px;
+}
+.download {
+height: 100px;
+width: 10%;
+border-radius: 10px;
+background: white;
+cursor: pointer;
+color: #4376A6;
+border: none;
+}
+.download:hover {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#boost {
+position: absolute;
+top: 200px;
+right: 3%;
+}
+#acorn {
+position: absolute;
+top: 310px;
+right: 3%;
+}
+#url {
+position: absolute;
+top: 420px;
+right: 3%;
+}
+#proton {
+position: absolute;
+top: 530px;
+right: 3%;
+}
+</style>
+</head>
+<body>
+<div id="nav">
+<a href="https://lb123658.github.io">
+<button class="navButton" id="title">Photon</button></a>
+<a href="about">
+<button class="navButton" id="about">About</button></a>
+<a href="services">
+<button class="navButton" id="services">Services</button></a>
+<a href="apps">
+<button class="navButton" id="apps">Web apps</button></a>
+<a href="developer">
+<button class="navButton" id="developer">Developer</button></a>
+
+<a href="share">      
+<button class="navButton" id="share" title="Share this page"><span class="material-icons" style="font-size: 30px;">share</span></button>
+</a>
+</div>
+
+<p id="phrase">Photon developer tools</p>
+
+<a href="https://lb123658.github.io/Boost-HTML-Editor/download" target="_blank">
+<div class="container" id="a">
+<img id="img-a" src="https://drive.google.com/thumbnail?id=1_WkY6_JASgRvnWu18iIXxDwmy9asRJN4"/>
+<p class="caption" id="p-a"><b>Boost HTML Editor</b><br>Free online HTML editor that lets you download your code as a file and preview it as a website.</p>
+</div></a>
+
+
+<a href="https://lb123658.github.io/acornLanguage/" target="_blank">
+<div class="container" id="b">
+<img id="img-b" src="https://lb123658.github.io/acornLanguage/images/favicon.png"/>
+<p class="caption" id="p-b"><b>Acorn</b><br>A new coding language that creates colorful pictures and automatically generates HTML.</p>
+</div></a>
+
+
+<a href="https://lb123658.github.io/a" target="_blank">
+<div class="container" id="c">
+<img id="img-c" src="https://static.thenounproject.com/png/2391755-200.png"/>
+<p class="caption" id="p-c"><b>URL shortener</b><br>Make links shorter.</p>
+</div></a>
+
+<a href="https://lb123658.github.io/proton" target="_blank">
+<div class="container" id="d">
+<img id="img-d" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ski_trail_rating_symbol_red_circle.png"/>
+<p class="caption" id="p-d"><b>Proton</b><br>Code editor. COMING SOON...</p>
+</div></a>
+
+<a href="https://lb123658.github.io/Boost-HTML-Editor/" download>
+<button class="download" id="boost" title="Download as HTML file"><span class="material-icons" style="font-size: 40px;">save_alt</span></button></a>
+
+<a href="https://lb123658.github.io/acornLanguage/editor" download>
+<button class="download" id="acorn" title="Download as HTML file"><span class="material-icons" style="font-size: 40px;">save_alt</span></button></a>
+
+<a href="https://lb123658.github.io/a" target="_blank">
+<button class="download" id="url" title="See available links"><span class="material-icons" style="font-size: 40px;">launch</span></button></a>
+
+<a href="https://lb123658.github.io/proton" target="_blank">
+<button class="download" id="proton" title="Coming soon"><span class="material-icons" style="font-size: 40px;">schedule</span></button></a>
+</body>
+</html>
