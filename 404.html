@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="Photon: free online resources for a variety of things." />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<title>Error</title>
+<link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/ > 
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+<style>
+* {
+font-family: 'Ubuntu', sans-serif;
+}
+#nav {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 80px;
+background: #4376A6;
+z-index: 1;
+}
+.navButton {
+height: 60px;
+border: none;
+background: transparent;
+color: #EDEEF0;
+font-size: 25px;
+cursor: pointer;
+border-radius: 7px;
+width: 150px;
+}
+.navButton:hover {
+background: #1A4B78;
+animation-name: banana;
+animation-duration: 0.9s;
+animation-iteration-count: 1;
+}
+@keyframes banana {
+ 
+  0% {background-color: transparent;}
+  100%   {background-color: #1A4B78;}
+
+}
+#title {
+position: absolute;
+top: 10px;
+left: 10px;
+font-size: 30px;
+}
+#about {
+position: absolute;
+top: 10px;
+left: 240px;
+}
+#services {
+position: absolute;
+top: 10px;
+left: 400px;
+}
+#apps {
+position: absolute;
+top: 10px;
+left: 560px;
+}
+#developer {
+position: absolute;
+top: 10px;
+left: 720px;
+}
+body {
+background: white;
+animation-name: background;
+animation-duration: 4.0s;
+animation-iteration-count: 1;
+}
+@keyframes background {
+ 
+  0% {background-color: #4376A6;}
+  100%   {background-color: white;}
+}
+#phrase {
+position: absolute;
+top: 30%;
+left: 15%;
+width: 70%;
+text-align: center;
+font-size: 50px;
+color: #4376A6;
+}
+#scroll {
+position: absolute;
+bottom: 10%;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background: #4376A6;
+color: white;
+border: 1px solid #4376A6;
+cursor: pointer;
+}
+#scroll:hover {
+background: transparent;
+color: #4376A6;
+}
+#scroll-center {
+position: absolute;
+left: 0px;
+width: 100%;
+text-align: center;
+bottom: 10%;
+}
+html {
+  scroll-behavior: smooth;
+}
+#text {
+position: absolute;
+top: 130%;
+left: 10px;
+width: 100%;
+text-align: center;
+font-size: 40px;
+color: #4376A6;
+}
+#img {
+width: 180px;
+}
+#share {
+position: absolute;
+top: 10px;
+left: 880px;
+width: 60px;
+padding: 15px;
+}
+#learn {
+height: 60px;
+border: 1px solid #EDEEF0;
+background: #4376A6;
+color: #EDEEF0;
+font-size: 25px;
+cursor: pointer;
+border-radius: 7px;
+width: 150px;
+}
+#learn:hover {
+background: #1A4B78;
+}
+</style>
+</head>
+<body onload="setTimeout(redirect, 16000); setTimeout(one, 1000); setTimeout(two, 2000); setTimeout(three, 3000); setTimeout(four, 4000); setTimeout(five, 5000); setTimeout(six, 6000); setTimeout(seven, 7000); setTimeout(eight, 8000); setTimeout(nine, 9000); setTimeout(ten, 10000); setTimeout(eleven, 11000); setTimeout(twelve, 12000); setTimeout(thirteen, 13000); setTimeout(fourteen, 14000); setTimeout(fifteen, 15000)">
+<div id="nav">
+<a href="https://lb123658.github.io">
+<button class="navButton" id="title">Photon</button></a>
+
+</div>
+
+<p id="phrase">Error: the page you entered does not exist.<br><br><span style="font-size: 30px;">Redirecting in <span id="num">15</span> seconds...</span></p>
+
+<a href="#text">
+<p id="scroll-center"><button id="scroll"><span class="material-icons">south</span></button></p></a>
+
+<p id="text"><img src="https://lb123658.github.io/logo.png" id="img"/><br><br>Photon<br><br>Visit our homepage<br><br>
+<a href="https://lb123658.github.io"><button id="learn">Home</button></a><br><br><br><br><br></p>
+
+<script>
+function redirect() {
+location.replace("https://lb123658.github.io");
+}
+var x = document.getElementById("num");
+function one() {
+x.innerHTML = "14";
+}
+function two() {
+x.innerHTML = "13";
+}
+function three() {
+x.innerHTML = "12";
+}
+function four() {
+x.innerHTML = "11";
+}
+function five() {
+x.innerHTML = "10";
+}
+function six() {
+x.innerHTML = "9";
+}
+function seven() {
+x.innerHTML = "8";
+}
+function eight() {
+x.innerHTML = "7";
+}
+function nine() {
+x.innerHTML = "6";
+}
+function ten() {
+x.innerHTML = "5";
+}
+function eleven() {
+x.innerHTML = "4";
+}
+function twelve() {
+x.innerHTML = "3";
+}
+function thirteen() {
+x.innerHTML = "2";
+}
+function fourteen() {
+x.innerHTML = "1";
+}
+function fifteen() {
+x.innerHTML = "0";
+}
+</script>
+</body>
+</html>
