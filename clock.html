@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="Photon: free online resources for a variety of things." />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<title id="t">Photon Clock</title>
+<link rel='icon' href='https://lb123658.github.io/clock.png' type='image/png'/ > 
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+<style>
+* {
+font-family: 'Ubuntu', sans-serif;
+}
+#nav {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 80px;
+background: #4376A6;
+z-index: 1;
+}
+.navButton {
+height: 60px;
+border: none;
+background: transparent;
+color: #EDEEF0;
+font-size: 25px;
+cursor: pointer;
+border-radius: 7px;
+}
+.navButton:hover {
+background: #1A4B78;
+animation-name: banana;
+animation-duration: 0.9s;
+animation-iteration-count: 1;
+}
+@keyframes banana {
+ 
+  0% {background-color: transparent;}
+  100%   {background-color: #1A4B78;}
+
+}
+#title {
+position: absolute;
+top: 10px;
+left: 10px;
+font-size: 30px;
+}
+body {
+background: white;
+animation-name: background;
+animation-duration: 2.0s;
+animation-iteration-count: 1;
+}
+@keyframes background {
+ 
+  0% {background-color: #4376A6;}
+  100%   {background-color: white;}
+}
+#phrase {
+position: absolute;
+top: 30%;
+left: 0px;
+width: 100%;
+text-align: center;
+font-size: 100px;
+color: #4376A6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+</style>
+</head>
+<body>
+<div id="nav">
+<button class="navButton" id="title" onclick="location.reload();">Photon Clock</button>
+</div>
+
+<p id="phrase"></p>
+
+<script>
+var myVar = setInterval(myTimer, 200);
+
+function myTimer() {
+  var d = new Date();
+  document.getElementById("phrase").innerHTML = d.toLocaleTimeString();
+t.innerHTML = d.toLocaleTimeString(); + " Photon Clock";
+}
+</script>
+
+</body>
+</html>
