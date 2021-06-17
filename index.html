@@ -1,179 +1,139 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="Description" content="Photon: free online resources for a variety of things." />
+<title>Photon games</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-<title>Photon | Home</title>
-<link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/ > 
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
-      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&display=swap" rel="stylesheet"><link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/ > 
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 <style>
 * {
-font-family: 'Ubuntu', sans-serif;
-}
-#nav {
-position: fixed;
-top: 0px;
-left: 0px;
-width: 100%;
-height: 80px;
-background: #4376A6;
-z-index: 1;
-}
-.navButton {
-height: 60px;
-border: none;
-background: transparent;
-color: #EDEEF0;
-font-size: 25px;
-cursor: pointer;
-border-radius: 7px;
-width: 150px;
-}
-.navButton:hover {
-background: #1A4B78;
-animation-name: banana;
-animation-duration: 0.9s;
-animation-iteration-count: 1;
-}
-@keyframes banana {
- 
-  0% {background-color: transparent;}
-  100%   {background-color: #1A4B78;}
-
+font-family: 'Press Start 2P', cursive;
+user-select: none;
+-webkit-user-select: none;
+cursor: default;
+color: #1ec963;
 }
 #title {
 position: absolute;
-top: 10px;
-left: 10px;
-font-size: 30px;
-}
-#about {
-position: absolute;
-top: 10px;
-left: 240px;
-}
-#services {
-position: absolute;
-top: 10px;
-left: 400px;
-}
-#apps {
-position: absolute;
-top: 10px;
-left: 560px;
-}
-#developer {
-position: absolute;
-top: 10px;
-left: 720px;
+top: 50px;
+left: 0px;
+width: 100%;
+text-align: center;
+font-size: 40px;
+color: #1ec963;
 }
 body {
-background: white;
-animation-name: background;
-animation-duration: 4.0s;
+background: black;
+}
+.item {
+padding: 10px;
+text-align: justify;
+background: transparent;
+border: none;
+background: #282828;
+color: #1ec963;
+width: 100%;
+font-size: 20px;
+line-height: 1.5;
+min-height: 60px;
+}
+.item:hover {
+background: #1ec963;
+color: white;
+}
+#container {
+position: absolute;
+top: 160px;
+left: 5%;
+width: 90%;
+font-size: 22px;
+}
+#name:hover {
+color: white;
+}
+#main {
+visibility: hidden;
+}
+#percent {
+width: 90%;
+position: absolute;
+top: 40%;
+left: 5%;
+height: 40px;
+background: #1ec963;
+border: none;
+animation-name: animate;
+animation-duration: 5.5s;
 animation-iteration-count: 1;
 }
-@keyframes background {
- 
-  0% {background-color: #4376A6;}
-  100%   {background-color: white;}
+#back {
+width: 90%;
+position: absolute;
+top: 40%;
+left: 5%;
+height: 40px;
+background: #282828;
+border: none;
+z-index: -1;
 }
-#phrase {
+#load {
 position: absolute;
 top: 30%;
 left: 0px;
 width: 100%;
 text-align: center;
-font-size: 50px;
-color: #4376A6;
+font-size: 22px;
 }
-#scroll {
-position: absolute;
-bottom: 10%;
-width: 40px;
-height: 40px;
-border-radius: 50%;
-background: #4376A6;
-color: white;
-border: 1px solid #4376A6;
-cursor: pointer;
+@keyframes animate {
+0% {width: 0%;}
+50% {width: 60%; background: #ffc000;}
+90% {width: 75%; background: red;}
+100% {width: 90%; background: purple;}
 }
-#scroll:hover {
-background: transparent;
-color: #4376A6;
-}
-#scroll-center {
-position: absolute;
-left: 0px;
-width: 100%;
-text-align: center;
-bottom: 10%;
-}
-html {
-  scroll-behavior: smooth;
-}
-#text {
-position: absolute;
-top: 130%;
-left: 10px;
-width: 100%;
-text-align: center;
-font-size: 40px;
-color: #4376A6;
-}
-#img {
-width: 180px;
-}
-#share {
-position: absolute;
-top: 10px;
-left: 880px;
-width: 60px;
-padding: 15px;
-}
-#learn {
-height: 60px;
-border: 1px solid #EDEEF0;
-background: #4376A6;
-color: #EDEEF0;
-font-size: 25px;
-cursor: pointer;
-border-radius: 7px;
-width: 150px;
-}
-#learn:hover {
-background: #1A4B78;
+@media screen and (max-width: 550px) {
+  #title {
+    font-size: 7.5vw;
+  }
+  #name {
+    visibility: hidden;
+  }
 }
 </style>
-</head>
-<body>
-<div id="nav">
-<a href="https://lb123658.github.io">
-<button class="navButton" id="title">Photon</button></a>
-<a href="about">
-<button class="navButton" id="about">About</button></a>
-<a href="services">
-<button class="navButton" id="services">Services</button></a>
-<a href="apps">
-<button class="navButton" id="apps">Web apps</button></a>
-<a href="developer">
-<button class="navButton" id="developer">Developer</button></a>
-
-<a href="share">      
-<button class="navButton" id="share" title="Share this page"><span class="material-icons" style="font-size: 30px;">share</span></button>
-</a>
+<body onload="setTimeout(showDiv, 5500)">
+<div id="loader">
+<p id="load">Loading games...</p>
+<button id="percent"></button>
+<button id="back"></button>
 </div>
+<div id="main">
+<p id="name" title="Welcome to Photon Games"></p>
+<p id="title">Photon Games</p>
+<div id="container">
+NEW UPDATES:
+<br><br>
+<a href="https://lb123658.github.io/tea" target="_blank">
+<button class="item">Create a TeaBag account today for free and start brewing virtual tea.</button></a>
+<br><br>
+<a href="https://github.com/LB123658/teabag-mac-app/archive/refs/heads/main.zip" target="_blank">
+<button class="item">Download the new TeaBag app for macOS.</button></a>
+<br><br><br>
+GAMES:
+<br><br>
+<a href="https://lb123658.github.io/tea" target="_blank">
+<button class="item">TeaBag: the video game of brewing virtual tea. PLAY NOW.</button></a>
+<br><br>
+<a href="https://lb123658.github.io/goat/about" target=
+"_blank">
+<button class="item">Goat Simulator: classic goat jumping game. PLAY NOW.</button></a>
+</div>
+</div>
+<script>
+document.getElementById("name").innerHTML = localStorage.getItem("account").split(":")[0];
 
-<p id="phrase">Photon: making online easier.</p>
-
-<a href="#text">
-<p id="scroll-center"><button id="scroll"><span class="material-icons">south</span></button></p></a>
-
-<p id="text"><img src="https://lb123658.github.io/logo.png" id="img"/><br><br>More coming soon from Photon.<br><br>Code editors, website builders, search engines, and more.<br><br>
-<a href="apps"><button id="learn">See all</button></a><br><br><br><br><br></p>
+function showDiv() {
+document.getElementById("loader").style.visibility = "hidden";
+document.getElementById("main").style.visibility = "visible";
+}
+</script>
 </body>
 </html>
