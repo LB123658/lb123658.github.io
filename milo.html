@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Milo</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&display=swap" rel="stylesheet"><link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/ > 
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+<style>
+* {
+font-family: 'Press Start 2P', cursive;
+user-select: none;
+-webkit-user-select: none;
+cursor: default;
+color: #1ec963;
+}
+:focus {
+outline-width: 0px;
+}
+body {
+background: black;
+}
+#top {
+position: absolute;
+top: 30px;
+left: 0px;
+width: 100%;
+text-align: center;
+font-size: 20px;
+}
+input {
+width: 50%;
+min-width: 300px;
+height: 40px;
+border: none;
+background: #282828;
+font-size: 20px;
+cursor: auto;
+}
+input:hover {
+background: #1ec963;
+color: white;
+}
+.button {
+height: 40px;
+border: none;
+background: #282828;
+font-size: 20px;
+}
+.button:hover {
+background: #1ec963;
+color: white;
+}
+.b {
+min-height: 40px;
+border: none;
+background: #282828;
+font-size: 20px;
+width: 100%;
+text-align: left;
+padding: 5px;
+line-height: 1.5;
+}
+.b:hover {
+background: #1ec963;
+color: white;
+}
+#container {
+position: absolute;
+top: 200px;
+left: 5%;
+width: 90%;
+height: 450px;
+background: #282828;
+overflow: auto;
+}
+</style>
+<body>
+<div id="top">
+<p>Milo, the virtual assistant</p>
+<br>
+<input type="text" placeholder="Ask Milo a question" id="input" autocomplete="off" onkeyup="lower()">
+<button id="button" onclick="question()" class="button">Ask></button>
+</div>
+
+<div id="container">
+<button class="b">Your conversation will show up here.</button>
+</div>
+<script>
+function lower() {
+document.getElementById("input").value = document.getElementById("input").value.toLowerCase();
+}
+document.getElementById("input").focus();
+
+function question() {
+var txt = document.getElementById("input").value;
+
+var button = document.createElement("BUTTON");
+button.innerHTML = "You: " + txt;
+button.className = "b";
+button.style.pointerEvents = "none";
+button.style.background = "black";
+document.getElementById("container").appendChild(button);
+
+if (txt == "") {
+var ans = "Sorry. I didn't get that. Is there anything else I can do for you?";
+} else if (txt == "hello") {
+var ans = "Hello.";
+} else if (txt == "how are you?") {
+var ans = "I'm good. How are you?";
+} else if (txt == "how are you") {
+var ans = "I'm good. How are you?";
+} else if (txt == "good") {
+var ans = "Great!";
+} else if (txt == "what can you do") {
+var ans = "You can tell me to open a certain website by typing the web address into the question bar starting with 'https://' or say 'look up ...'. I can also answer other questions too.";
+} else if (txt == "what can you do?") {
+var ans = "You can tell me to open a certain website by typing the web address into the question bar starting with 'https://' or say 'look up ...'. I can also answer other questions too.";
+} else if (txt == "help") {
+var ans = "You can tell me to open a certain website by typing the web address into the question bar starting with 'https://' or say 'look up ...'. I can also answer other questions too.";
+} else if (txt == "help me") {
+var ans = "You can tell me to open a certain website by typing the web address into the question bar starting with 'https://' or say 'look up ...'. I can also answer other questions too.";
+} else if (txt == "how can you help me") {
+var ans = "You can tell me to open a certain website by typing the web address into the question bar starting with 'https://' or say 'look up ...'. I can also answer other questions too.";
+} else if (txt = "how old are you") {
+var ans = "I was created on June 17, 2021, so I am not that old.";
+} else if (txt = "how old are you?") {
+var ans = "I was created on June 17, 2021, so I am not that old.";
+} else if (txt = "whats your favorite food") {
+var ans = "I'm not sure, but I like sushi.";
+} else if (txt = "whats your favorite food?") {
+var ans = "I'm not sure, but I like sushi.";
+} else if (txt = "what's your favorite food") {
+var ans = "I'm not sure, but I like sushi.";
+} else if (txt = "what's your favorite food?") {
+var ans = "I'm not sure, but I like sushi.";
+} else if (txt = "what is your favorite food") {
+var ans = "I'm not sure, but I like sushi.";
+} else if (txt = "what is your favorite food?") {
+var ans = "I'm not sure, but I like sushi.";
+} else if (txt.split(" up")[0] == "look") {
+var ans = "I will look up '" + txt.split("up")[1] + "' for you.";
+window.open("https://duckduckgo.com/?q=" + txt.split("up")[1], "_blank");
+} else if (txt.split("//")[0] == "https:") {
+var ans = "I will open " + txt.split("//")[1];
+window.open(txt, "_blank");
+} else if (txt == "go away") {
+window.close();
+} else {
+var ans = "Sorry, I didn't get that.";
+}
+
+var milo = document.createElement("BUTTON");
+milo.innerHTML = "Milo: " + ans;
+milo.className = "b";
+document.getElementById("container").appendChild(milo);
+
+document.getElementById("input").value = "";
+document.getElementById("input").focus();
+}
+</script>
+</body>
+</html>
