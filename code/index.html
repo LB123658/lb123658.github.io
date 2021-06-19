@@ -33,7 +33,7 @@ outline-width: 0px;
 <script>
 var txt = document.getElementById("txt");
 txt.focus();
-var compiled = "<body><script id='llama'>" + txt.value + "</" + "script> <script src='https://lb123658.github.io/code/llama.js'></script" + "></body>";
+var compiled = "<!DOCTYPE html> <html> <head> <title>Running your LLAMA code</title> </head> <body> <script id='llama'>" + txt.value + "</" + "script> <script src='https://lb123658.github.io/code/llama.js'>" + "</" + "script> </body> </html>";
 function runCode() {
 if (document.getElementById("txt").value.split("cmd")[1] == " --run") {
 myWindow = window.open("myWindow");
