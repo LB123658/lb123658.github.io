@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,6 +84,12 @@ width: 100%;
 text-align: center;
 font-size: 22px;
 }
+#funds {
+float: right;
+}
+#funds:hover {
+color: white;
+}
 @keyframes animate {
 0% {width: 0%;}
 50% {width: 60%; background: #ffc000;}
@@ -98,6 +103,9 @@ font-size: 22px;
   #name {
     visibility: hidden;
   }
+  #funds {
+    visibility: hidden;
+  }
 }
 </style>
 <body onload="setTimeout(showDiv, 5500)">
@@ -108,6 +116,8 @@ font-size: 22px;
 </div>
 <div id="main">
 <p id="name" title="Welcome to Photon Games"></p>
+<p id="funds" title="Your money from TeaBag"></p>
+
 <p id="title">Photon Games</p>
 <div id="container">
 NEW UPDATES:
@@ -129,10 +139,17 @@ GAMES:
 <a href="https://lb123658.github.io/goat/about" target=
 "_blank">
 <button class="item">Goat Simulator: classic goat jumping game. PLAY NOW.</button></a>
+<br><br>
+<a href="https://lb123658.github.io/Survival" target=
+"_blank">
+<button class="item">Survival: survive on an island with bananas and dynamite. PLAY NOW.</button></a>
+<br><br>
 </div>
 </div>
 <script>
 document.getElementById("name").innerHTML = localStorage.getItem("account").split(":")[0];
+
+document.getElementById("funds").innerHTML = "$" + localStorage.getItem("money");
 
 function showDiv() {
 document.getElementById("loader").style.visibility = "hidden";
