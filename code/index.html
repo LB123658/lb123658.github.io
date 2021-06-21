@@ -43,10 +43,7 @@ txt.focus();
 function runCode() {
 var compiled = "<!DOCTYPE html> <html> <head> <title>Running your LLAMA code</title> </head> <body> <script id='llama'>" + txt.value + "</" + "script> <script src='https://lb123658.github.io/code/llama.js'>" + "</" + "script> </body> </html>";
 if (document.getElementById("txt").value.split("cmd")[1] == " --run") {
-var div = createElement("DIV");
-div.innerHTML = compiled;
-div.id = "div";
-document.body.appendChild(div);
+document.body.innerHTML = compiled;
 } else {
   ;
 }
