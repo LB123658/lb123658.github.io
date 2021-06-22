@@ -46,8 +46,8 @@ var txt = document.getElementById("txt");
 txt.focus();
 function runCode() {
   if (document.getElementById("txt").value.split("cmd")[1] == " --run") {
-    alert("Running LLAMA code");
     compileCode();
+    alert("Running LLAMA code");
   }
   if (document.getElementById("txt").value.split("cmd")[1] == " --download") {
     alert("LLAMA cannot download yet");
@@ -61,7 +61,7 @@ function runCode() {
 }
 function compileCode() {
 var textLlama = document.createElement("P");
-    textLlama.innerHTML = document.getElementById("txt").value.split("<create[TEXT]:: ")[0].split("::>")[0];
+    textLlama.innerHTML = document.getElementById("txt").value.split("<create[TEXT]:: ")[1].split("::>")[0];
     document.getElementById("frame").appendChild(textLlama);
 }
 </script>
