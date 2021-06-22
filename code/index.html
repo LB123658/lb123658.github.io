@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Llama code editor</title>
+<title id="t">Llama code editor</title>
 <head>
 <style>
 body {
@@ -24,13 +24,6 @@ font-size: 20px;
 :focus {
 outline-width: 0px;
 }
-#div {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-}
 </style>
 </head>
 <body>
@@ -41,12 +34,12 @@ outline-width: 0px;
 var txt = document.getElementById("txt");
 txt.focus();
 function runCode() {
-var compiled = "<!DOCTYPE html> <html> <head> <title>Running your LLAMA code</title> </head> <body> <script id='llama'>" + txt.value + "</" + "script> <script src='https://lb123658.github.io/code/llama.js'>" + "</" + "script> </body> </html>";
-if (document.getElementById("txt").value.split("cmd")[1] == " --run") {
-document.body.innerHTML = compiled;
-} else {
-  ;
-}
+  if (document.getElementById("txt").value.split("cmd")[1] == " --run") {
+    alert("LLAMA cannot run yet");
+  }
+  if (document.getElementById("txt").value.slice(0, 8) == "<file:: ") {
+    document.getElementById("t").innerHTML = document.getElementById("txt").value.split("<file:: ")[1].split(">")[0];
+  }
 }
 </script>
 </body>
