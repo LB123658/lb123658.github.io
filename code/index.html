@@ -4,7 +4,7 @@
 <head>
 <style>
 body {
-background: #181818;
+background: lightgrey;
 }
 * {
 font-family: courier new;
@@ -15,31 +15,54 @@ color: white;
 position: absolute;
 top: 0px;
 left: 0px;
-width: 100%;
+width: 50%;
 height: 100%;
-background: transparent;
+background: #282828;
 border: none;
 font-size: 20px;
 }
 :focus {
 outline-width: 0px;
 }
+#frame {
+position: absolute;
+top: 0px;
+left: 50%;
+width: 50%;
+height: 100%;
+color: black;
+user-select: none;
+-webkit-user-select: none;
+}
 </style>
 </head>
 <body>
 
 <textarea id="txt" placeholder="Type LLAMA code here" onkeyup="runCode()"></textarea>
-
+<div id="frame">
+</div>
 <script>
 var txt = document.getElementById("txt");
 txt.focus();
 function runCode() {
   if (document.getElementById("txt").value.split("cmd")[1] == " --run") {
-    alert("LLAMA cannot run yet");
+    alert("Running LLAMA code");
+    compileCode();
+  }
+  if (document.getElementById("txt").value.split("cmd")[1] == " --download") {
+    alert("LLAMA cannot download yet");
+  }
+  if (document.getElementById("txt").value.split("about")[1] == " --version") {
+    alert("LLAMA\nVersion 1.0");
   }
   if (document.getElementById("txt").value.slice(0, 8) == "<file:: ") {
     document.getElementById("t").innerHTML = document.getElementById("txt").value.split("<file:: ")[1].split(">")[0];
   }
+}
+function compileCode() {
+var textLlama = document.createElement("P");
+    textLlama.innerHTML = document.getElementById("txt").value.split("<create[TEXT]:: ")[0].split(">")[1];
+    document.getElementById("frame").appendChild(textLlama);
 }
 </script>
 </body>
