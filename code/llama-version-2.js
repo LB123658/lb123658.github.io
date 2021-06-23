@@ -17,7 +17,7 @@ function runCode() {
 }
 function compileCode() {
   document.getElementById("frame").innerHTML = "";
-  if (document.getElementById("txt").value.split("\n").[1].split("::")[0] == "<create[text]") {
+  if (document.getElementById("txt").value.split("\n")[1].split("::")[0] == "<create[text]") {
     var textLlama = document.createElement("P");
     textLlama.innerHTML = document.getElementById("txt").value.split("<create[text]:: ")[1].split("::>")[0];
     document.getElementById("frame").appendChild(textLlama);
