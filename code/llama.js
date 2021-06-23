@@ -16,11 +16,11 @@ function runCode() {
 }
 function compileCode() {
   document.getElementById("frame").innerHTML = "";
+ if (document.getElementById("txt").value.split("\n").[1].split("::")[0] == "<create[text]") {
     var textLlama = document.createElement("P");
     textLlama.innerHTML = document.getElementById("txt").value.split("<create[text]:: ")[1].split("::>")[0];
     document.getElementById("frame").appendChild(textLlama);
-
-if (document.getElementById("txt").value.split("#application:: ")[1].split("#")[0] == "<app:: webwindow::>") {
+ } else if (document.getElementById("txt").value.split("#application:: ")[1].split("#")[0] == "<app:: webwindow::>") {
     var url = document.createElement("EMBED");
     url.src = document.getElementById("txt").value.split("<create[webwindow]:: ")[1].split("::>")[0];
     url.style.position = "absolute";
@@ -29,5 +29,7 @@ if (document.getElementById("txt").value.split("#application:: ")[1].split("#")[
     url.style.width = "100%";
     url.style.height = "50%";
     document.getElementById("frame").appendChild(url);
+  } else {
+    ;
   }
 }
