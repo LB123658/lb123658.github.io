@@ -20,7 +20,7 @@ function compileCode() {
     textLlama.innerHTML = document.getElementById("txt").value.split("<create[text]:: ")[1].split("::>")[0];
     document.getElementById("frame").appendChild(textLlama);
 
-if (document.getElementById("txt").value.slice(0, 19) == "#import>> webwindow") {
+if (document.getElementById("txt").value.split("#application:: ")[1].split("#")[0] == "<app:: webwindow::>") {
     var url = document.createElement("EMBED");
     url.src = document.getElementById("txt").value.split("<create[webwindow]:: ")[1].split("::>")[0];
     url.style.position = "absolute";
