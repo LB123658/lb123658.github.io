@@ -21,13 +21,13 @@ function compileCode() {
     document.getElementById("frame").appendChild(textLlama);
 
 if (document.getElementById("txt").value.slice(0, 19) == "#import>> webwindow") {
-    var urlLlama = document.createElement("EMBED");
-    urlLlama.src = document.getElementById("txt").value.split("<create[webwindow]:: ")[1].split("::>")[0];
-    urlLlama.style.position = "absolute";
-    urlLlama.style.top = "0px";
-    urlLlama.style.left = "0px";
-    urlLlama.style.width = "100%";
-    urlLlama.style.height = "50%";
-    document.getElementById("frame").appendChild(urlLlama);
+    var url = document.createElement("EMBED");
+    url.src = document.getElementById("txt").value.split("<create[webwindow]:: ")[1].split("::>")[0];
+    url.style.position = "absolute";
+    url.style.top = "0px";
+    url.style.left = "0px";
+    url.style.width = "100%";
+    url.style.height = "50%";
+    document.getElementById("frame").appendChild(url);
   }
 }
