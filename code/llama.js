@@ -22,12 +22,13 @@ function createText() {
 // see which function to do based on code
 function compileCode() {
   document.getElementById("frame").innerHTML = "";
- if (document.getElementById("txt").value.split("\n").[1].split("::")[0] == "<create[text]") {
+  if (document.getElementById("txt").value.split("\n").[1].split("::")[0] == "<create[text]") {
     createText();
- } else if (document.getElementById("txt").value.split("#application:: ")[1].split("#")[0] == "<app:: webwindow::>") {
+  } else if (document.getElementById("txt").value.split("#application:: ")[1].split("#")[0] == "<app:: webwindow::>") {
     createEmbed();
   } else {
     alert("Failed to run code");
+  }
 }
 
 function runCode() {
