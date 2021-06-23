@@ -26,7 +26,8 @@ function compileCode() {
     createText();
  } else if (document.getElementById("txt").value.split("#application:: ")[1].split("#")[0] == "<app:: webwindow::>") {
     createEmbed();
-  } 
+  } else {
+    alert("Failed to run code");
 }
 
 function runCode() {
