@@ -1,4 +1,3 @@
-//focus textarea
 var txt = document.getElementById("txt");
 txt.focus();
 
@@ -16,8 +15,6 @@ function runCode() {
     document.getElementById("t").innerHTML = document.getElementById("txt").value.split("<file:: ")[1].split(">")[0];
   }
 }
-
-// see which function to do based on code
 function compileCode() {
   document.getElementById("frame").innerHTML = "";
   if (document.getElementById("txt").value.split("\n").[1].split("::")[0] == "<create[text]") {
@@ -33,7 +30,5 @@ function compileCode() {
     url.style.width = "100%";
     url.style.height = "50%";
     document.getElementById("frame").appendChild(url);
-  } else {
-    alert("Failed to run code");
   }
 }
