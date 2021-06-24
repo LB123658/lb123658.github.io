@@ -12,4 +12,6 @@ The title of the LLAMA document is written at the top.
 ```
 <file:: LLAMA Example>
 ```
-The code above would set the title of the document to "LLAMA Example".
+The code above would set the title of the document to "LLAMA Example".\
+The filename part is always at the top.\
+To write text in LLAMA use ```create(text) "YOUR TEXT GOES HERE";```
