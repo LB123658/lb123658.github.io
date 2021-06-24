@@ -17,18 +17,18 @@ function runCode() {
 }
 function compileCode() {
   document.getElementById("frame").innerHTML = "";
-  if (document.getElementById("txt").value.split("<")[1].split("::")[0] == "create[text]") {
+  if (document.getElementById("txt").value.split("create(")[1].split(")")[0] == "text") {
     var textLlama = document.createElement("P");
-    textLlama.innerHTML = document.getElementById("txt").value.split("<create[text]:: ")[1].split("::>")[0];
+    textLlama.innerHTML = document.getElementById("txt").value.split("create(text) \"")[1].split("\";")[0];
     document.getElementById("frame").appendChild(textLlama);
-  } else if (document.getElementById("txt").value.split("<")[1].split("::")[0] == "create[webwindow]") {
+  } else if (document.getElementById("txt").value.split("create(")[1].split(")")[0] == "webwindow") {
     var url = document.createElement("EMBED");
-    url.src = document.getElementById("txt").value.split("<create[webwindow]:: ")[1].split("::>")[0];
+    url.src = document.getElementById("txt").value.split("create(webwindow) \"")[1].split("\"")[0];
     url.style.position = "absolute";
     url.style.top = "0px";
     url.style.left = "0px";
     url.style.width = "99%";
     url.style.height = "50%";
     document.getElementById("frame").appendChild(url);
-  }
+  } 
 }
