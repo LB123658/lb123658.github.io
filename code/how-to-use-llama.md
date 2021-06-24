@@ -14,4 +14,13 @@ The title of the LLAMA document is written at the top.
 ```
 The code above would set the title of the document to "LLAMA Example".\
 The filename part is always at the top.\
-To write text in LLAMA use ```create(text) "YOUR TEXT GOES HERE";```
+To write text in LLAMA use ```create(text) "YOUR TEXT GOES HERE";```\
+The following code would write "Hello."\
+```
+create(text) "Hello.";
+```
+You can also display websites in LLAMA by using ```create(webwindow) "https://your-url-goes-here";```\
+```
+create(webwindow) "https://wikipedia.org";
+```
+The code above would display Wikipedia/
