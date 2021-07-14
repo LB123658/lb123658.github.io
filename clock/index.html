@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&display=swap" rel="stylesheet">
+<title id="t">Photon Clock</title>
+<link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/> 
+
+<style>
+* {
+font-family: 'Press Start 2P', cursive;
+cursor: default;
+color: #A3FFFF;
+}
+body {
+background: black;
+text-align: center;
+margin-left: 30px;
+margin-right: 30px;
+}
+p {
+font-size: 35px;
+}
+#date {
+font-size: 20px;
+}
+h1 {
+font-size: 40px;
+background: grey;
+padding: 20px;
+border: 2px solid white;
+}
+#div {
+border: 2px solid white;
+}
+</style>
+</head>
+<body>
+<h1>Photon clock</h1>
+<br>
+<div id="div">
+<p id="date"></p>
+<br><br>
+<p id="phrase"></p>
+</div>
+<noscript>Turn on JavaScript to use clock.</noscript>
+<script src="https://lb123658.github.io/dark.mode/vintage.js"></script>
+<script>
+var myVar = setInterval(myTimer, 200);
+
+function myTimer() {
+  var d = new Date();
+  document.getElementById("phrase").innerHTML = d.toLocaleTimeString();
+t.innerHTML = d.toLocaleTimeString(); + " Photon Clock";
+}
+
+var d = new Date();
+document.getElementById("date").innerHTML = d;
+document.getElementById("date").innerHTML = document.getElementById("date").innerHTML.split("2021")[0].replace(/Mon/gi, "Monday, ").replace(/Tue/gi, "Tuesday, ").replace(/Wed/gi, "Wednesday, ").replace(/Thu/gi, "Thursday, ").replace(/Fri/gi, "Friday, ").replace(/Sat/gi, "Saturday, ").replace(/Sun/gi, "Sunday, ").replace(/Jan/gi, "January ").replace(/Feb/gi, "February ").replace(/Mar/gi, "March ").replace(/Apr/gi, "April ").replace(/May/gi, "May ").replace(/Jun/gi, "June ").replace(/Jul/gi, "July ").replace(/Aug/gi, "August ").replace(/Sep/gi, "September ").replace(/Oct/gi, "October ").replace(/Nov/gi, "November ").replace(/Dec/gi, "December ");
+</script>
+
+</body>
+</html>
