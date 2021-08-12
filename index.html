@@ -69,21 +69,61 @@ margin-bottom: 10px;
 .option:hover {
 background: #f2d8de;
 }
+#suggestions {
+height: 400px;
+overflow: auto;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+#links {
+position: absolute;
+bottom: 80px;
+}
+#links a {
+line-height: 1.5;
+}
 </style>
 <head>
 <body>
 <div id="left">
-<button class="big">Photon</button>
+<button class="big" onclick="location.reload();">Photon</button>
 <br><br>
+
+<div id="suggestions">
 <p class="small-title">Suggested apps</p>
 <button class="option">Galaxy <span class="material-icons" style="color:#69c9d0; float:right;">search</span></button>
 <button class="option">TeaBag <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
 <button class="option">Goat simulator <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
+<button class="option">HTML Editor <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
+<button class="option">Proton <span class="material-icons" style="color:#69c9d0; float:right;">palette</span></button>
+<button class="option">Camera <span class="material-icons" style="color:#69c9d0; float:right;">photo_camera</span></button>
+<button class="option">Galaxy Store <span class="material-icons" style="color:#69c9d0; float:right;">shopping_bag</span></button>
+<button class="option">Docs <span class="material-icons" style="color:#69c9d0; float:right;">description</span></button>
+<button class="option">Unkrafted <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
 <button class="option">Milo <span class="material-icons" style="color:#69c9d0; float:right;">psychology</span></button>
 <button class="option">Dark Mode <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
 <button class="option">Private search <span class="material-icons" style="color:#69c9d0; float:right;">search</span></button>
 <button class="option">Galaxy Store <span class="material-icons" style="color:#69c9d0; float:right;">shopping_bag</span></button>
 <button class="option">Galaxy TV <span class="material-icons" style="color:#69c9d0; float:right;">live_tv</span></button>
+<button class="option">Galaxy Extension <span class="material-icons" style="color:#69c9d0; float:right;">download</span></button>
+<button class="option">AcornScript <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
+<button class="option">Vintage Docs <span class="material-icons" style="color:#69c9d0; float:right;">description</span></button>
+<button class="option">PF Editor <span class="material-icons" style="color:#69c9d0; float:right;">description</span></button>
+
+<button class="option">Survival <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
+</div>
+
+<div id="links">
+  <a href="#">About Photon</a>
+  <br>
+  <a href="#">Search</a>
+  <br>
+  <a href="#">Privacy Policy</a>
+  <br>
+  <a>©2021 Photon</a>
+</div>
+
 </div>
 </body>
 </html>
