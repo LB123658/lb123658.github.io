@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -315,7 +314,8 @@ background: white;
 
 <div id="top">
 <input type="text" placeholder="Search Galaxy" autocomplete="off" id="input">
-<button><span class="material-icons">account_circle</span></button>
+<a href="account">
+<button><span class="material-icons">account_circle</span></button></a>
 <button onclick="display(sharing);"><span class="material-icons">more_vert</span></button>
 </div>
 
@@ -343,8 +343,8 @@ main.innerHTML = text;
 display("<h2>Welcome to Photon</h2><p>Photon is a collection of convenient products making the internet easier for you.With Photon you can edit documents, search online, play games, watch TV, take pictures, and more.</p><br><br><h2>About Photon</h2><p>Photon is commited to your online privacy so none of its sites track you.* Galaxy stores your search history to make it more convenient for you but it isn't shared with anyone.<br><br><br><h2>Your Photon Account</h2><p>With a Photon account, you are automatically connected to the TeaBag game, Galaxy, and you can get more TeaBag in-game money from Photon. You can monitor you game expenses and search history all from one place.</p><br><br><br><br><br><br><p style='color:grey'>*The old version of the Ultimate Goat Simulator actually does track you.</p>");
 
 // main div innerHTML variables
-var sharing = "<h2>More options</h2><p>Share this page...</p><input type='text'autocomplete='off' value='https://lb123658.github.io' value='Website link'><br><br><p>Embed this page...</p><input type='text'autocomplete='off' value='<embed src=\"https://lb123658.github.io\" style=\"width:100%;height:620px;border-radius:10px;border:1px solid #ee1d52;\"><a href=\"https://lb123658.github.io\"><button style=\"height:30px;background:white;border:none;color:#ee1d52;cursor:pointer;\">Visit site ></button></a></embed>' value='Website embed code'><br><br><p>Save page as...</p><a href='https://lb123658.github.io' download><button>Save this website</button></a><br><br><p>Print this page...</p><button onclick='window.print();'>Print</button>";
-var galaxy = "<h2>Galaxy</h2><p>A search engine with useful results that never tracks you and still has convenient features.</p><img src='https://repository-images.githubusercontent.com/388578363/e790f06e-a656-4654-8766-160127df68f2'><br><br><a href='galaxy?source=new_user' target='_blank'><button>Try it out</button></a>";
+var sharing = "<h2>More options</h2><p>Share this page...</p><input type='text'autocomplete='off' value='" + window.location.href + "' value='Website link'><br><br><p>Embed this page...</p><input type='text'autocomplete='off' value='<embed src=\"https://lb123658.github.io\" style=\"width:100%;height:620px;border-radius:10px;border:1px solid #ee1d52;\"><a href=\"https://lb123658.github.io\"><button style=\"height:30px;background:white;border:none;color:#ee1d52;cursor:pointer;\">Visit site ></button></a></embed>' value='Website embed code'><br><br><p>Save page as...</p><a href='https://lb123658.github.io' download><button>Save this website</button></a>";
+var galaxy = "<h2>Galaxy</h2><p>A search engine with useful results that never tracks you and still has convenient features.</p><br><br><a href='galaxy?source=new_user' target='_blank'><button>Try it out</button></a>";
 var teabag = "<h2>TeaBag - the game of browing virtual tea</h2><p>The free online game that brings virtual tea to your computer. Brew virtual tea, buy new teapots, cups, and tea varieties, while collecting points and money. Create an account to join or use a Photon account.</p><br><a href='tea' target='_blank'><button>Try it out</button></a>";
 </script>
 <script src="https://lb123658.github.io/autofill.js"></script>
