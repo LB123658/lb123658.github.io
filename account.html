@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Photon Account</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel='icon' href='https://lb123658.github.io/galaxy/favicon.png' type='image/png'/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+<style>
+body {
+background: white;
+overflow-x: hidden;
+}
+* {
+font-family: 'Montserrat', sans-serif;
+user-select: none;
+-webkit-user-select: none;
+}
+input {
+-webkit-user-select: auto;
+}
+:focus {
+outline: none;
+}
+a {
+color: grey;
+text-decoration: none;
+font-size: 15px;
+cursor: pointer;
+}
+#left {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 200px;
+height: 100%;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+padding: 20px;
+z-index: 3;
+transition: width 0.5s;
+background: white;
+}
+#left button {
+width: 100%;
+}
+#left:hover {
+width: 240px;
+}
+#left:hover #suggestions {
+visibility: visible;
+}
+.big {
+height: 40px;
+font-size: 25px;
+border: 1px solid #ee1d52;
+border-radius: 4px;
+color: #ee1d52;
+background: transparent;
+cursor: pointer;
+}
+.big:hover {
+background: #f2d8de;
+}
+.small-title {
+color: grey;
+}
+.option {
+height: 40px;
+font-size: 18px;
+border: none;
+border-radius: 4px;
+color: #ee1d52;
+background: #e8eaeb;
+cursor: pointer;
+text-align: left;
+margin-bottom: 10px;
+}
+.option:hover {
+background: #f2d8de;
+}
+#suggestions {
+height: 400px;
+overflow: auto;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+#links {
+position: absolute;
+bottom: 80px;
+}
+#links a {
+line-height: 1.5;
+}
+#input {
+margin: 20px;
+width: 300px;
+height: 36px;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 4px;
+background: #e8eaeb;
+border: 1px solid #ee1d52;
+font-size: 18px;
+}
+#input:focus {
+background: white;
+}
+#top {
+position: fixed;
+top: 0px;
+left: 240px;
+height: 80px;
+background: white;
+z-index: 2;
+}
+#background-top {
+position: fixed;
+top: 0px;
+left: 0px;
+height: 80px;
+width: 100%;
+background: white;
+z-index: 1;
+border: none;
+pointer-events: none;
+}
+#top button {
+height: 40px;
+width: 40px;
+border: none;
+border-radius: 4px;
+color: #ee1d52;
+background: #e8eaeb;
+float: right;
+margin-top: 20px;
+margin-right: 20px;
+}
+#top button:hover {
+cursor: pointer;
+background: #f2d8de;
+}
+#div {
+position: fixed;
+top: 60px;
+left: 260px;
+width: 300px;
+padding: 10px 20px 10px 20px;
+background: white;
+border-radius: 0px 0px 4px 4px;
+color: grey;
+z-index: 2;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+visibility: hidden;
+}
+#div button {
+height: 40px;
+font-size: 18px;
+border: none;
+border-radius: 4px;
+color: #ee1d52;
+background: #e8eaeb;
+cursor: pointer;
+text-align: left;
+margin: 5px;
+padding-left: 10px;
+padding-riight: 10px;
+}
+#div button:hover {
+background: #f2d8de;
+}
+#main {
+position: absolute;
+top: 80px;
+left: 0px;
+width: 100%;
+background: white;
+}
+#main * {
+margin-left: 260px;
+line-height: 1.5;
+}
+#main h2 {
+font-size: 23px;
+}
+#main p {
+font-size: 17px;
+}
+#main img {
+width: 500px;
+border-radius: 10px;
+transition: border-radius 0.5s;
+}
+#main img:hover {
+border-radius: 20px;
+}
+#main a {
+margin-left: 0px;
+}
+#main button {
+min-height: 40px;
+font-size: 18px;
+border: none;
+border-radius: 4px;
+color: #ee1d52;
+background: #e8eaeb;
+cursor: pointer;
+text-align: left;
+padding-left: 10px;
+padding-riight: 10px;
+}
+#main button:hover {
+background: #f2d8de;
+}
+#main input {
+width: 300px;
+height: 36px;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 4px;
+background: #e8eaeb;
+border: 1px solid #ee1d52;
+font-size: 18px;
+}
+#main input:focus {
+background: white;
+}
+@media screen and (max-width: 750px) {
+  #top button {
+    visibility: hidden;
+  }
+  #input {
+    width: 80%;
+  }
+  #div {
+    width: 54%;
+  }
+}
+@media screen and (max-width: 710px) {
+  #div {
+    width: 53%;
+  }
+}
+@media screen and (max-width: 670px) {
+  #div {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 580px) {
+  #left {
+    width: 120px;
+  } 
+  #suggestions {
+    visibility: hidden;
+  }
+  #input {
+    width: 90%;
+  }
+  #div {
+    left: 200px;
+    width: 52%;
+  }
+  #main * {
+    margin-left: 180px;
+  }
+  #top {
+    margin-left: -60px;
+  }
+}
+</style>
+<head>
+<body>
+<button id="background-top"></button>
+<div id="left">
+<a href="https://lb123658.github.io">
+<button class="big">Photon</button></a>
+<br><br>
+
+<div id="suggestions">
+<p class="small-title">Your Photon Account</p>
+<button class="option" onclick="location.reload();">Information <span class="material-icons" style="color:#69c9d0; float:right;">info</span></button>
+<button class="option" onclick="display(security);">Security <span class="material-icons" style="color:#69c9d0; float:right;">lock</span></button>
+<button class="option" onclick="display(privacy);">Privacy <span class="material-icons" style="color:#69c9d0; float:right;">visibility</span></button>
+<br><br><br>
+<button class="option" onclick="display(money);">TeaBag funds <span class="material-icons" style="color:#69c9d0; float:right;">paid</span></button>
+<button class="option" onclick="display(search_history);">Search history <span class="material-icons" style="color:#69c9d0; float:right;">history</span></button>
+
+</div>
+
+<div id="links">
+  <a href="#">About Photon</a>
+  <br>
+  <a onclick="input.focus();">Search</a>
+  <br>
+  <a href="#">Privacy Policy</a>
+  <br>
+  <a>©2021 Photon</a>
+</div>
+
+</div>
+
+<div id="top">
+<input type="text" placeholder="Search Galaxy" autocomplete="off" id="input">
+<a href="account">
+<button><span class="material-icons">account_circle</span></button></a>
+<a href="https://lb123658.github.io">
+<button><span class="material-icons">home</span></button></a>
+</div>
+
+<div id="div">
+No search suggestions...
+</div>
+
+<div id="main">
+<h2>Your Photon Account</h2>
+<p id="username">You do not have a username yet</p>
+<input type="text" id="name" placeholder="Choose your username">
+<br><br>
+<button onclick="setName()">Set username</button>
+<br><br><br>
+<input type="password" id="password" placeholder="Choose your password">
+<br><br>
+<button onclick="setPass()">Set password</button>
+</div>
+<script>
+var topDiv = document.getElementById("top");
+var input = document.getElementById("input");
+var div = document.getElementById("div");
+var main = document.getElementById("main");
+var username = document.getElementById("username");
+var nameU = document.getElementById("name");
+var password = document.getElementById("password");
+
+document.body.onload = function() {var wide = window.innerWidth - 240; topDiv.style.width = wide + "px";};
+document.body.onresize = function() {var wide = window.innerWidth - 240; topDiv.style.width = wide + "px";};
+
+var search_history = "<h2>Galaxy search history</h2><br>" + localStorage.getItem("search_history").split("null")[1];
+var money = "<h2>Your TeaBag funds</h2><p>You currently have:<br> $" + localStorage.getItem("money") + ".00 in TeaBag money<br>" + localStorage.getItem("points") + " TeaBag points</p>".replace(/null/g, "0");
+var security = "<h2>Security</h2><p>Your account is secure.</p>";
+var privacy = "<h2>Privacy</h2><p>No one else has access to your account info.</p>";
+
+if (localStorage.getItem("account").search(":") > -1) {
+username.innerHTML = "Welcome, " + localStorage.getItem("account").split(":")[0];
+nameU.value = localStorage.getItem("account").split(":")[0];
+password.value = localStorage.getItem("account").split(":")[1];
+}
+function display(text) {
+main.innerHTML = text;
+}
+function setName() {
+localStorage.setItem("account", nameU.value + ":" + localStorage.getItem("account").split(":")[1]);
+location.reload();
+}
+function setPass() {
+localStorage.setItem("account", localStorage.getItem("account").split(":")[0] + ":" + password.value);
+location.reload();
+}
+</script>
+<script src="https://lb123658.github.io/autofill.js"></script>
+</body>
+</html>
