@@ -1,162 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Photon games</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&display=swap" rel="stylesheet"><link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/ > 
+<title>Photon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel='icon' href='https://lb123658.github.io/galaxy/favicon.png' type='image/png'/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 <style>
+body {
+background: white;
+overflow-x: hidden;
+}
 * {
-font-family: 'Press Start 2P', cursive;
+font-family: 'Montserrat', sans-serif;
 user-select: none;
 -webkit-user-select: none;
-cursor: default;
-color: #1ec963;
 }
-#title {
-position: absolute;
-top: 50px;
+input {
+webkit-user-select: auto;
+}
+:focus {
+outline: none;
+}
+a {
+color: grey;
+text-decoration: none;
+font-size: 15px;
+}
+#left {
+position: fixed;
+top: 0px;
 left: 0px;
+width: 200px;
+height: 100%;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+padding: 20px;
+}
+#left button {
 width: 100%;
-text-align: center;
-font-size: 40px;
-color: #1ec963;
 }
-body {
-background: black;
-}
-.item {
-padding: 10px;
-text-align: justify;
+.big {
+height: 40px;
+font-size: 25px;
+border: 1px solid #ee1d52;
+border-radius: 4px;
+color: #ee1d52;
 background: transparent;
-border: none;
-background: #282828;
-color: #1ec963;
-width: 100%;
-font-size: 20px;
-line-height: 1.5;
-min-height: 60px;
+cursor: pointer;
 }
-.item:hover {
-background: #1ec963;
-color: white;
+.big:hover {
+background: #f2d8de;
 }
-#container {
-position: absolute;
-top: 160px;
-left: 5%;
-width: 90%;
-font-size: 22px;
+.small-title {
+color: grey;
 }
-#name:hover {
-color: white;
-}
-#main {
-visibility: hidden;
-}
-#percent {
-width: 90%;
-position: absolute;
-top: 40%;
-left: 5%;
+.option {
 height: 40px;
-background: #1ec963;
+font-size: 18px;
 border: none;
-animation-name: animate;
-animation-duration: 5.5s;
-animation-iteration-count: 1;
+border-radius: 4px;
+color: #ee1d52;
+background: #e8eaeb;
+cursor: pointer;
+text-align: left;
+margin-bottom: 10px;
 }
-#back {
-width: 90%;
-position: absolute;
-top: 40%;
-left: 5%;
-height: 40px;
-background: #282828;
-border: none;
-z-index: -1;
-}
-#load {
-position: absolute;
-top: 30%;
-left: 0px;
-width: 100%;
-text-align: center;
-font-size: 22px;
-}
-#funds {
-position: absolute;
-top:0px;
-right: 0px;
-}
-#funds:hover {
-color: white;
-}
-@keyframes animate {
-0% {width: 0%;}
-50% {width: 60%; background: #ffc000;}
-90% {width: 75%; background: red;}
-100% {width: 90%; background: purple;}
-}
-@media screen and (max-width: 550px) {
-  #title {
-    font-size: 7.5vw;
-  }
-  #name {
-    visibility: hidden;
-  }
-  #funds {
-    visibility: hidden;
-  }
+.option:hover {
+background: #f2d8de;
 }
 </style>
-<body onload="setTimeout(showDiv, 5500)">
-<div id="loader">
-<p id="load">Loading games...</p>
-<button id="percent"></button>
-<button id="back"></button>
+<head>
+<body>
+<div id="left">
+<button class="big">Photon</button>
+<br><br>
+<p class="small-title">Suggested apps</p>
+<button class="option">Galaxy <span class="material-icons" style="color:#69c9d0; float:right;">search</span></button>
+<button class="option">TeaBag <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
+<button class="option">Goat simulator <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
+<button class="option">Milo <span class="material-icons" style="color:#69c9d0; float:right;">psychology</span></button>
+<button class="option">Dark Mode <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
+<button class="option">Private search <span class="material-icons" style="color:#69c9d0; float:right;">search</span></button>
+<button class="option">Galaxy Store <span class="material-icons" style="color:#69c9d0; float:right;">shopping_bag</span></button>
+<button class="option">Galaxy TV <span class="material-icons" style="color:#69c9d0; float:right;">live_tv</span></button>
 </div>
-<div id="main">
-<p id="name" title="Welcome to Photon Games"></p>
-<p id="funds" title="Your money from TeaBag"></p>
-
-<p id="title">Photon Games</p>
-<div id="container">
-NEW UPDATES:
-<br><br>
-<a href="https://lb123658.github.io/milo" target="_blank">
-<button class="item">Try Milo, the new virtual assistant.</button></a>
-<br><br>
-<a href="https://lb123658.github.io/tea" target="_blank">
-<button class="item">Create a TeaBag account today for free and start brewing virtual tea.</button></a>
-<br><br>
-<a href="https://github.com/LB123658/teabag-mac-app/archive/refs/heads/main.zip" target="_blank">
-<button class="item">Download the new TeaBag app for macOS.</button></a>
-<br><br><br>
-GAMES:
-<br><br>
-<a href="https://lb123658.github.io/tea" target="_blank">
-<button class="item">TeaBag: the video game of brewing virtual tea. PLAY NOW.</button></a>
-<br><br>
-<a href="https://lb123658.github.io/goat/about" target=
-"_blank">
-<button class="item">Goat Simulator: classic goat jumping game. PLAY NOW.</button></a>
-<br><br>
-<a href="https://lb123658.github.io/Survival" target=
-"_blank">
-<button class="item">Survival: survive on an island with bananas and dynamite. PLAY NOW.</button></a>
-<br><br>
-</div>
-</div>
-<script>
-document.getElementById("name").innerHTML = localStorage.getItem("account").split(":")[0];
-
-document.getElementById("funds").innerHTML = "$" + localStorage.getItem("money");
-
-function showDiv() {
-document.getElementById("loader").style.visibility = "hidden";
-document.getElementById("main").style.visibility = "visible";
-}
-</script>
 </body>
 </html>
