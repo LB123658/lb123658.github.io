@@ -18,7 +18,7 @@ user-select: none;
 -webkit-user-select: none;
 }
 input {
-webkit-user-select: auto;
+-webkit-user-select: auto;
 }
 :focus {
 outline: none;
@@ -36,9 +36,21 @@ width: 200px;
 height: 100%;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 padding: 20px;
+z-index: 1;
+transition: width 0.5s;
+background: white;
 }
 #left button {
 width: 100%;
+}
+#left:hover {
+width: 240px;
+}
+#left:hover #suggestions {
+visibility: visible;
+}
+#suggestions:hover {
+visibility: visible;
 }
 .big {
 height: 40px;
@@ -83,6 +95,62 @@ bottom: 80px;
 #links a {
 line-height: 1.5;
 }
+#input {
+margin: 20px;
+width: 300px;
+height: 36px;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 4px;
+background: #e8eaeb;
+border: 1px solid #ee1d52;
+font-size: 18px;
+}
+#input:focus {
+background: white;
+}
+#top {
+position: fixed;
+top: 0px;
+left: 240px;
+height: 80px;
+background: white;
+}
+#top button {
+height: 40px;
+width: 40px;
+border: none;
+border-radius: 4px;
+color: #ee1d52;
+background: #e8eaeb;
+float: right;
+margin-top: 20px;
+margin-right: 20px;
+}
+#top button:hover {
+cursor: pointer;
+background: #f2d8de;
+}
+@media screen and (max-width: 750px) {
+  #top button {
+    visibility: hidden;
+  }
+  #input {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 580px) {
+  #left {
+    width: 120px;
+  } 
+  #suggestions {
+    visibility: hidden;
+  }
+  #input {
+    margin-left: -60px;
+    width: 100%;
+  }
+}
 </style>
 <head>
 <body>
@@ -125,5 +193,19 @@ line-height: 1.5;
 </div>
 
 </div>
+
+<div id="top">
+<input type="text" placeholder="Search Photon" autocomplete="off" id="input">
+<button><span class="material-icons">account_circle</span></button>
+<button><span class="material-icons">more_vert</span></button>
+
+</div>
+
+<script>
+var topDiv = document.getElementById("top");
+document.body.onload = function() {var wide = window.innerWidth - 240; topDiv.style.width = wide + "px";};
+document.body.onresize = function() {var wide = window.innerWidth - 240; topDiv.style.width = wide + "px";};
+
+</script>
 </body>
 </html>
