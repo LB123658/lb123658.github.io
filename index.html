@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +38,7 @@ width: 200px;
 height: 100%;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 padding: 20px;
-z-index: 2;
+z-index: 3;
 transition: width 0.5s;
 background: white;
 }
@@ -113,6 +114,18 @@ top: 0px;
 left: 240px;
 height: 80px;
 background: white;
+z-index: 2;
+}
+#background-top {
+position: fixed;
+top: 0px;
+left: 0px;
+height: 80px;
+width: 100%;
+background: white;
+z-index: 1;
+border: none;
+pointer-events: none;
 }
 #top button {
 height: 40px;
@@ -130,7 +143,7 @@ cursor: pointer;
 background: #f2d8de;
 }
 #div {
-position: absolute;
+position: fixed;
 top: 60px;
 left: 260px;
 width: 300px;
@@ -138,7 +151,7 @@ padding: 10px 20px 10px 20px;
 background: white;
 border-radius: 0px 0px 4px 4px;
 color: grey;
-z-index: 1;
+z-index: 2;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 visibility: hidden;
 }
@@ -163,12 +176,56 @@ position: absolute;
 top: 80px;
 left: 0px;
 width: 100%;
+background: white;
 }
 #main * {
 margin-left: 260px;
+line-height: 1.5;
 }
 #main h2 {
-font-size: 20px;
+font-size: 23px;
+}
+#main p {
+font-size: 17px;
+}
+#main img {
+width: 500px;
+border-radius: 10px;
+transition: border-radius 0.5s;
+}
+#main img:hover {
+border-radius: 20px;
+}
+#main a {
+margin-left: 0px;
+}
+#main button {
+height: 40px;
+font-size: 18px;
+border: none;
+border-radius: 4px;
+color: #ee1d52;
+background: #e8eaeb;
+cursor: pointer;
+text-align: left;
+padding-left: 10px;
+padding-riight: 10px;
+}
+#main button:hover {
+background: #f2d8de;
+}
+#main input {
+width: 300px;
+height: 36px;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 4px;
+background: #e8eaeb;
+border: 1px solid #ee1d52;
+font-size: 18px;
+}
+#main input:focus {
+background: white;
 }
 @media screen and (max-width: 750px) {
   #top button {
@@ -199,28 +256,31 @@ font-size: 20px;
     visibility: hidden;
   }
   #input {
-    margin-left: -60px;
-    width: 100%;
+    width: 90%;
   }
   #div {
-    left: 180px;
-    width: 56%;
+    left: 200px;
+    width: 52%;
   }
   #main * {
     margin-left: 180px;
+  }
+  #top {
+    margin-left: -60px;
   }
 }
 </style>
 <head>
 <body>
+<button id="background-top"></button>
 <div id="left">
 <button class="big" onclick="location.reload();">Photon</button>
 <br><br>
 
 <div id="suggestions">
 <p class="small-title">Suggested apps</p>
-<button class="option">Galaxy <span class="material-icons" style="color:#69c9d0; float:right;">search</span></button>
-<button class="option">TeaBag <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
+<button class="option" onclick="display(galaxy);">Galaxy <span class="material-icons" style="color:#69c9d0; float:right;">search</span></button>
+<button class="option" onclick="display(teabag);">TeaBag <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
 <button class="option">Goat simulator <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
 <button class="option">HTML Editor <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
 <button class="option">Proton <span class="material-icons" style="color:#69c9d0; float:right;">palette</span></button>
@@ -256,7 +316,7 @@ font-size: 20px;
 <div id="top">
 <input type="text" placeholder="Search Galaxy" autocomplete="off" id="input">
 <button><span class="material-icons">account_circle</span></button>
-<button><span class="material-icons">more_vert</span></button>
+<button onclick="display(sharing);"><span class="material-icons">more_vert</span></button>
 </div>
 
 <div id="div">
@@ -264,17 +324,29 @@ No search suggestions...
 </div>
 
 <div id="main">
-<h2>Check back later</h2>
-<p>Coming soon...</p>
+<h2>The page could not load</h2>
+<p>Check to see if JavaScript is turned on.</p>
+<button onclick="location.reload();">Reload <span class="material-icons" style="color:#69c9d0; float:right;">refresh</span></button>
 </div>
 <script>
 var topDiv = document.getElementById("top");
 var input = document.getElementById("input");
 var div = document.getElementById("div");
+var main = document.getElementById("main");
 
 document.body.onload = function() {var wide = window.innerWidth - 240; topDiv.style.width = wide + "px";};
 document.body.onresize = function() {var wide = window.innerWidth - 240; topDiv.style.width = wide + "px";};
+
+function display(text) {
+main.innerHTML = text;
+}
+display("<h2>Welcome to Photon</h2><p>Photon is a collection of convenient products making the internet easier for you.With Photon you can edit documents, search online, play games, watch TV, take pictures, and more.</p><br><br><h2>About Photon</h2><p>Photon is commited to your online privacy so none of its sites track you.* Galaxy stores your search history to make it more convenient for you but it isn't shared with anyone.<br><br><br><h2>Your Photon Account</h2><p>With a Photon account, you are automatically connected to the TeaBag game, Galaxy, and you can get more TeaBag in-game money from Photon. You can monitor you game expenses and search history all from one place.</p><br><br><br><br><br><br><p style='color:grey'>*The old version of the Ultimate Goat Simulator actually does track you.</p>");
+
+// main div innerHTML variables
+var sharing = "<h2>More options</h2><p>Share this page...</p><input type='text'autocomplete='off' value='https://lb123658.github.io' value='Website link'><br><br><p>Embed this page...</p><input type='text'autocomplete='off' value='<embed src=\"https://lb123658.github.io\" style=\"width:100%;height:620px;border-radius:10px;border:1px solid #ee1d52;\"><a href=\"https://lb123658.github.io\"><button style=\"height:30px;background:white;border:none;color:#ee1d52;cursor:pointer;\">Visit site ></button></a></embed>' value='Website embed code'><br><br><p>Save page as...</p><a href='https://lb123658.github.io' download><button>Save this website</button></a><br><br><p>Print this page...</p><button onclick='window.print();'>Print</button>";
+var galaxy = "<h2>Galaxy</h2><p>A search engine with useful results that never tracks you and still has convenient features.</p><img src='https://repository-images.githubusercontent.com/388578363/e790f06e-a656-4654-8766-160127df68f2'><br><br><a href='galaxy?source=new_user' target='_blank'><button>Try it out</button></a>";
+var teabag = "<h2>TeaBag - the game of browing virtual tea</h2><p>The free online game that brings virtual tea to your computer. Brew virtual tea, buy new teapots, cups, and tea varieties, while collecting points and money. Create an account to join or use a Photon account.</p><br><a href='tea' target='_blank'><button>Try it out</button></a>";
 </script>
-<script src="autofill.js"></script>
+<script src="https://lb123658.github.io/autofill.js"></script>
 </body>
 </html>
