@@ -2,12 +2,14 @@
 <html>
 <head>
 <title>Milo</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&display=swap" rel="stylesheet"><link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/ > 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel='icon' href='https://lb123658.github.io/logo.png' type='image/png'/ > 
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 <style>
 * {
-font-family: 'Press Start 2P', cursive;
+font-family: 'Montserrat', sans-serif;
 user-select: none;
 -webkit-user-select: none;
 cursor: default;
@@ -20,7 +22,7 @@ scroll-behavior: smooth;
 outline-width: 0px;
 }
 body {
-background: black;
+background: #181818;
 }
 #top {
 position: absolute;
@@ -53,19 +55,32 @@ font-size: 20px;
 background: #1ec963;
 color: white;
 }
-.b {
+.a {
 min-height: 40px;
 border: none;
-background: #282828;
+background: #484848;
 font-size: 20px;
-width: 100%;
+width: 75%;
 text-align: left;
 padding: 5px;
 line-height: 1.5;
+float: right;
+border-radius: 20px;
+margin-bottom: 10px;
 }
-.b:hover {
+.b {
+min-height: 40px;
+border: none;
 background: #1ec963;
+font-size: 20px;
+width: 75%;
+text-align: left;
+padding: 5px;
+line-height: 1.5;
 color: white;
+float: left;
+border-radius: 20px;
+margin-bottom: 10px;
 }
 #container {
 position: absolute;
@@ -82,10 +97,10 @@ color: white;
 </style>
 <body>
 <div id="top">
-<p>Milo, the virtual assistant</p>
+<h2>Milo, the virtual assistant</h2>
 <br>
 <input type="text" placeholder="Ask Milo a question" id="input" autocomplete="off" onkeyup="lower()">
-<button id="button" onclick="question()" class="button">Ask></button>
+<button id="button" onclick="question()" class="button">Ask</button>
 </div>
 
 <div id="container">
@@ -102,11 +117,13 @@ var txt = document.getElementById("input").value;
 
 var button = document.createElement("BUTTON");
 button.innerHTML = "You: " + txt;
-button.className = "b";
-button.style.pointerEvents = "none";
-button.style.background = "black";
+button.className = "a";
 document.getElementById("container").appendChild(button);
 
+setTimeout(answer, 1000);
+} 
+function answer() {
+var txt = document.getElementById("input").value;
 if (txt == "") {
 var ans = "Sorry. I didn't get that. Is there anything else I can do for you?";
 } else if (txt.split(" up")[0] == "look") {
@@ -150,11 +167,11 @@ var ans = "I'm not sure, but I like sushi.";
 } else if (txt == "what is your favorite food?") {
 var ans = "I'm not sure, but I like sushi.";
 } else if (txt == "go away") {
-window.close();
+ans = "Ok bye";
 } else if (txt == "go away milo") {
-window.close();
+ans = "Ok bye";
 } else if (txt == "go away, milo") {
-window.close();
+ans = "Ok, bye";
 } else if (txt.split(" is")[0] == "where") {
 window.open("https://duckduckgo.com/?q=" + txt.split("is ")[1] + "&atb=v267-1&ia=maps&iaxm=maps", "_blank");
 ans = "I found where " + txt.split("is ")[1] + " is.";
@@ -202,10 +219,7 @@ ans = "I  don't like " + txt.split(" like ")[1] + " either.";
 ans = "I  don't like " + txt.split(" like ")[1] + " either.";
 } else if (txt.split(" like")[0] == "do you") {
 ans = "I  love " + txt.split(" like ")[1].split("?")[0] + ". How did you know?";
-}
-
-
-else {
+} else {
 var ans = "Sorry, I didn't get that.";
 }
 
