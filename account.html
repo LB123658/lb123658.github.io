@@ -400,9 +400,9 @@ var loc = document.getElementById("loc");
 
 document.getElementById("person").style.visibility = "visible";
 
-if (localStorage.getItem("name").length > 0) {
 realName.innerHTML = "Your name: " + localStorage.getItem("name");
-}
+realName.innerHTML = realName.innerHTML.replace("null","unknown");
+
 if (navigator.userAgent.indexOf("Chrome") != -1) {
 var b = "Chrome";
 } else if (navigator.userAgent.indexOf("Safari") != -1) {
