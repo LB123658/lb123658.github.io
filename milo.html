@@ -40,6 +40,9 @@ border: none;
 background: #282828;
 font-size: 20px;
 cursor: auto;
+border-radius: 20px;
+padding-left: 10px;
+padding-right: 10px;
 }
 input:hover {
 background: #1ec963;
@@ -50,6 +53,9 @@ height: 40px;
 border: none;
 background: #282828;
 font-size: 20px;
+border-radius: 20px;
+padding-left: 10px;
+padding-right: 10px;
 }
 .button:hover {
 background: #1ec963;
@@ -67,6 +73,7 @@ line-height: 1.5;
 float: right;
 border-radius: 20px;
 margin-bottom: 10px;
+max-width: 750px;
 }
 .b {
 min-height: 40px;
@@ -81,6 +88,7 @@ color: white;
 float: left;
 border-radius: 20px;
 margin-bottom: 10px;
+max-width: 750px;
 }
 #container {
 position: absolute;
@@ -100,7 +108,7 @@ color: white;
 <h2>Milo, the virtual assistant</h2>
 <br>
 <input type="text" placeholder="Ask Milo a question" id="input" autocomplete="off" onkeyup="lower()">
-<button id="button" onclick="question()" class="button">Ask</button>
+<button id="button" onclick="question()" class="button">Send</button>
 </div>
 
 <div id="container">
@@ -121,6 +129,7 @@ button.className = "a";
 document.getElementById("container").appendChild(button);
 
 setTimeout(answer, 1000);
+document.getElementById("input").value = document.getElementById("input").value.replace("?", "");
 } 
 function answer() {
 var txt = document.getElementById("input").value;
@@ -219,7 +228,30 @@ ans = "I  don't like " + txt.split(" like ")[1] + " either.";
 ans = "I  don't like " + txt.split(" like ")[1] + " either.";
 } else if (txt.split(" like")[0] == "do you") {
 ans = "I  love " + txt.split(" like ")[1].split("?")[0] + ". How did you know?";
-} else {
+} else if (txt.split(" ")[0] == "im") {
+ans = "It's nice to know that you're " + txt.split("im ")[1] + ".";
+} else if (txt.split(" ")[0] == "i'm") {
+ans = "It's nice to know that you're " + txt.split("im ")[1] + ".";
+} else if (txt.split(" ")[0] == "i am") {
+ans = "It's nice to know that you're " + txt.split("im ")[1] + ".";
+} else if (txt.split("do")[0] == "how ") {
+ans = "I do not actually know how " + txt.split("how do ")[1] + ", but I will try to help.";
+} else if (txt.split(" ")[0] == "how") {
+ans = "I do not actually know how " + txt.split("how ")[1] + ", but I will try to help.";
+} else if (txt == "whats your name") {
+ans = "My name is Milo.";
+} else if (txt == "what's your name") {
+ans = "My name is Milo.";
+} else if (txt == "what is your name") {
+ans = "My name is Milo.";
+} else if (txt.split("is")[0] == "what ") {
+ans = "I do not actually know what " + txt.split("what is ")[1] + " is, but I will try to figure it out.";
+} else if (txt.search("name") > -1) {
+ans = "Hello, " + txt.split("is ")[1] + "!";
+getUserInfo();
+}
+
+else {
 var ans = "Sorry, I didn't get that.";
 }
 
@@ -234,6 +266,14 @@ document.getElementById("input").focus();
 // scroll to bottom of chat
 var myDiv = document.getElementById("container");
 myDiv.scrollTop = myDiv.scrollHeight;
+}
+function getUserInfo() {
+var txt = document.getElementById("input").value;
+  if (txt.search("name") > -1) {
+    var end = txt.split("is ")[1].length;
+    var capitalizedName = txt.split("is ")[1].slice(0,1).toUpperCase() + txt.split("is ")[1].slice(1,end);
+    localStorage.setItem("name", capitalizedName);
+  }
 }
 </script>
 </body>
