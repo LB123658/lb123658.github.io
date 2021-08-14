@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -249,9 +250,7 @@ ans = "I do not actually know what " + txt.split("what is ")[1] + " is, but I wi
 } else if (txt.search("name") > -1) {
 ans = "Hello, " + txt.split("is ")[1] + "!";
 getUserInfo();
-}
-
-else {
+} else {
 var ans = "Sorry, I didn't get that.";
 }
 
@@ -269,11 +268,9 @@ myDiv.scrollTop = myDiv.scrollHeight;
 }
 function getUserInfo() {
 var txt = document.getElementById("input").value;
-  if (txt.search("name") > -1) {
-    var end = txt.split("is ")[1].length;
-    var capitalizedName = txt.split("is ")[1].slice(0,1).toUpperCase() + txt.split("is ")[1].slice(1,end);
-    localStorage.setItem("name", capitalizedName);
-  }
+var end = txt.split("is ")[1].length;
+var capitalizedName = txt.split("is ")[1].slice(0,1).toUpperCase() + txt.split("is ")[1].slice(1,end);
+localStorage.setItem("name", capitalizedName);
 }
 </script>
 </body>
