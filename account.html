@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -342,7 +341,7 @@ No search suggestions...
 <p id="computer">Your computer: unknown</p>
 <p id="browser">Your browser: unknown</p>
 <p id="language">You speak: unknown</p>
-<p id="location">Your location: unknown</p>
+<p id="loc">Your location: unknown</p>
 </div>
 </div>
 <script>
@@ -397,15 +396,24 @@ var realName = document.getElementById("real-name");
 var computer = document.getElementById("computer");
 var browse = document.getElementById("browser");
 var language = document.getElementById("language");
-var loc = document.getElementById("location");
+var loc = document.getElementById("loc");
 
 document.getElementById("person").style.visibility = "visible";
 
 if (localStorage.getItem("name").length > 0) {
 realName.innerHTML = "Your name: " + localStorage.getItem("name");
 }
+if (navigator.userAgent.indexOf("Chrome") != -1) {
+var b = "Chrome";
+} else if (navigator.userAgent.indexOf("Safari") != -1) {
+var b = "Safari";
+} else if (navigator.userAgent.indexOf("Firefox") != -1) {
+var b = "Firefox";
+} else if (navigator.userAgent.indexOf("Edge") != -1) {
+var b = "Edge";
+}
 computer.innerHTML = "Your computer: " + navigator.platform;
-browse.innerHTML = "Your browser: " + navigator.appVersion;
+browse.innerHTML = "Your browser: " + b;
 language.innerHTML = "You speak: " + navigator.language.replace("en-US","English").replace("en-GB","English").replace("es","Spanish").replace("de","German").replace("ja","Japanese").replace("fr","French").replace("ko","Korean");
 }
 </script>
