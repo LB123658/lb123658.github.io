@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Photon</title>
+<base href="https://lb123658.github.io"></base>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -280,32 +281,31 @@ background: white;
 <p class="small-title">Suggested apps</p>
 <button class="option" onclick="display(galaxy);">Galaxy <span class="material-icons" style="color:#69c9d0; float:right;">search</span></button>
 <button class="option" onclick="display(teabag);">TeaBag <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
-<button class="option">Goat simulator <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
-<button class="option">HTML Editor <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
-<button class="option">Proton <span class="material-icons" style="color:#69c9d0; float:right;">palette</span></button>
-<button class="option">Camera <span class="material-icons" style="color:#69c9d0; float:right;">photo_camera</span></button>
-<button class="option">Galaxy Store <span class="material-icons" style="color:#69c9d0; float:right;">shopping_bag</span></button>
-<button class="option">Docs <span class="material-icons" style="color:#69c9d0; float:right;">description</span></button>
-<button class="option">Unkrafted <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
-<button class="option">Milo <span class="material-icons" style="color:#69c9d0; float:right;">psychology</span></button>
-<button class="option">Dark Mode <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
-<button class="option">Private search <span class="material-icons" style="color:#69c9d0; float:right;">search</span></button>
-<button class="option">Galaxy Store <span class="material-icons" style="color:#69c9d0; float:right;">shopping_bag</span></button>
-<button class="option">Galaxy TV <span class="material-icons" style="color:#69c9d0; float:right;">live_tv</span></button>
-<button class="option">Galaxy Extension <span class="material-icons" style="color:#69c9d0; float:right;">download</span></button>
-<button class="option">AcornScript <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
-<button class="option">Vintage Docs <span class="material-icons" style="color:#69c9d0; float:right;">description</span></button>
-<button class="option">PF Editor <span class="material-icons" style="color:#69c9d0; float:right;">description</span></button>
+<button class="option" onclick="display(goat);">Goat simulator <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
+<button class="option" onclick="display(html)">HTML Editor <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
+<button class="option" onclick="display(proton);">Proton <span class="material-icons" style="color:#69c9d0; float:right;">palette</span></button>
+<button class="option" onclick="display(camera);">Camera <span class="material-icons" style="color:#69c9d0; float:right;">photo_camera</span></button>
+<button class="option" onclick="display(store);">Galaxy Store <span class="material-icons" style="color:#69c9d0; float:right;">shopping_bag</span></button>
+<button class="option" onclick="display(docs);">Docs <span class="material-icons" style="color:#69c9d0; float:right;">description</span></button>
+<button class="option" onclick="display(unkrafted);">Unkrafted <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
+<button class="option" onclick="display(milo);">Milo <span class="material-icons" style="color:#69c9d0; float:right;">psychology</span></button>
+<button class="option" onclick="display(dark);">Dark Mode <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
+<button class="option" onclick="display(cebolla);">Private search <span class="material-icons" style="color:#69c9d0; float:right;">search</span></button>
+<button class="option" onclick="display(tv);">Galaxy TV <span class="material-icons" style="color:#69c9d0; float:right;">live_tv</span></button>
+<button class="option" onclick="display(extension);">Galaxy Extension <span class="material-icons" style="color:#69c9d0; float:right;">download</span></button>
+<button class="option" onclick="display(acorn);">AcornScript <span class="material-icons" style="color:#69c9d0; float:right;">code</span></button>
+<button class="option" onclick="display(vintage);">Vintage Docs <span class="material-icons" style="color:#69c9d0; float:right;">description</span></button>
+<button class="option" onclick="display(pf);">PF Editor <span class="material-icons" style="color:#69c9d0; float:right;">description</span></button>
 
-<button class="option">Survival <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
+<button class="option" onclick="display(survival);">Survival <span class="material-icons" style="color:#69c9d0; float:right;">sports_esports</span></button>
 </div>
 
 <div id="links">
-  <a href="#">About Photon</a>
+  <a onclick="location.reload();">About Photon</a>
   <br>
   <a onclick="input.focus();">Search</a>
   <br>
-  <a href="#">Privacy Policy</a>
+  <a onclick="display(privacy);">Privacy Policy</a>
   <br>
   <a>©2021 Photon</a>
 </div>
@@ -344,8 +344,26 @@ display("<h2>Welcome to Photon</h2><p>Photon is a collection of convenient produ
 
 // main div innerHTML variables
 var sharing = "<h2>More options</h2><p>Share this page...</p><input type='text'autocomplete='off' value='" + window.location.href + "' value='Website link'><br><br><p>Embed this page...</p><input type='text'autocomplete='off' value='<embed src=\"https://lb123658.github.io\" style=\"width:100%;height:620px;border-radius:10px;border:1px solid #ee1d52;\"><a href=\"https://lb123658.github.io\"><button style=\"height:30px;background:white;border:none;color:#ee1d52;cursor:pointer;\">Visit site ></button></a></embed>' value='Website embed code'><br><br><p>Save page as...</p><a href='https://lb123658.github.io' download><button>Save this website</button></a>";
-var galaxy = "<h2>Galaxy</h2><p>A search engine with useful results that never tracks you and still has convenient features.</p><br><br><a href='galaxy?source=new_user' target='_blank'><button>Try it out</button></a>";
+var galaxy = "<h2>Galaxy</h2><p>A search engine with useful results that never tracks you and still has convenient features.</p><br><span class='material-icons' style='color:#69c9d0; font-size:40px;'>history</span><p>Privacy alert: this website keeps track of your search history.</p><br><a href='galaxy?source=new_user' target='_blank'><button>Try it out</button></a>";
 var teabag = "<h2>TeaBag - the game of browing virtual tea</h2><p>The free online game that brings virtual tea to your computer. Brew virtual tea, buy new teapots, cups, and tea varieties, while collecting points and money. Create an account to join or use a Photon account.</p><br><a href='tea' target='_blank'><button>Try it out</button></a>";
+var goat = "<h2>The Ultimate Goat Simulator</h2><p>Experience this amazing goat simulator with goats running and jumping over logs.</p><br><span class='material-icons' style='color:#69c9d0; font-size:40px;'>visibility</span><p>Privacy alert: this website is being tracked.</p><br><br><a href='goat/about' target='_blank'><button>Try it out</button></a>";
+var html = "<h2>Boost HTML Editor</h2><p>An online HTML editor that lets you preview your code, download it, and see it as a website.</p><br><a href='Boost-HTML-Editor' target='_blank'><button>Try it out</button></a>";
+var proton = "<h2>Proton</h2><p>Proton is a collection of digital art tools for drawing, photo editing, and coding.</p><br><a href='Proton/home' target='_blank'><button>Try it out</button></a>";
+var camera = "<h2>Camera</h2><p>Take pictures with this online camera. Also ncludes filters.</p><br><span class='material-icons' style='color:#69c9d0; font-size:40px;'>photo_camera</span><p>Privacy alert: this website has access to your camera.</p><br><br><a href='camera' target='_blank'><button>Try it out</button></a>";
+var store = "<h2>Galaxy Store</h2><p>Access even more from Galaxy including Galaxy TV and other features.</p><br><span class='material-icons' style='color:#69c9d0; font-size:40px;'>history</span><p>Privacy alert: this website keeps track of your search history.</p><br><br><a href='galaxy/store' target='_blank'><button>Try it out</button></a>";
+var docs = "<h2>Docs</h2><p>Edit and save documents online for free. No account needed. Features allow you to download the document and share it.</p><br><span class='material-icons' style='color:#69c9d0; font-size:40px;'>description</span><p>Privacy alert: this website stores what you type.</p><br><br><a href='docs' target='_blank'><button>Try it out</button></a>";
+var unkrafted = "<h2>Unkrafted</h2><p>The video game that isn't Minecraft. More information available at the game's website.</p><br><br><a href='unkrafted' target='_blank'><button>Try it out</button></a>";
+var milo = "<h2>Milo, the virtual assitant</h2><p>Ask Milo questions ar where things are to find out.</p><br><br><a href='milo' target='_blank'><button>Try it out</button></a>";
+var dark = "<h2>Dark Mode</h2><p>With this JavaScript code, you can turn on dark mode for any website by pasting it into the console.</p><br><span class='material-icons' style='color:#69c9d0; font-size:40px;'>block</span><p>Privacy alert: most websites will block this.</p><br><br><a href='dark.mode' target='_blank'><button>Try it out</button></a>";
+var cebolla = "<h2>Browse in Darkness</h2><p>Search in complete privacy with a search engine that tells you how private other sites are and stores no information about you.</p><br><br><a href='cebolla' target='_blank'><button>Try it out</button></a>";
+var tv = "<h2>Galaxy TV</h2><p>Watch most videos from YouTube without being tracked.</p><br><br><a href='galaxy/tv' target='_blank'><button>Try it out</button></a>";
+var extension = "<h2>Galaxy Extension</h2><p>This extension available for Chrome and Brave makes searching even more convenient. To install, download the file and go to you browser's extension page. Click the \"Developer mode\" switch and click \"Load unpacked\" to choose the file you just downloaded. This will add it to your browser. (83KB download)</p><br><br><a href='https://lb123658.github.io/galaxy/extension/extension.zip'><button>Download</button></a>";
+var acorn = "<h2>AcornScript</h2><p>A new coding language to format documents with different sized text, photos, videos, links, and embedded pages.</p><br><br><a href='AcornScript' target='_blank'><button>Try it out</button></a>";
+var acorn = "<h2>Vintage Docs</h2><p>Looks like an old computer screen.</p><br><br><a href='docs/old' target='_blank'><button>Try it out</button></a>";
+var pf = "<h2>PF Editor</h2><p>Edit and save documents with customizable text colors, sizes, fonts, and more. Download and save features are available.</p><br><br><a href='docs/pf/editor' target='_blank'><button>Try it out</button></a>";
+var survival = "<h2>Survival</h2><p>Land on an island and try to survive in this video game.</p><br><br><a href='Survival' target='_blank'><button>Try it out</button></a>";
+var privacy = "<h2>Photon privacy policy</h2><p>Photon takes your online privacy seriously and only tracks you on the Goat Simulator. All other information is only available to you, such as in-game money, search history, names, and passwords.</p>";
+
 </script>
 <script src="https://lb123658.github.io/autofill.js"></script>
 </body>
