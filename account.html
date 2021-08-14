@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -199,6 +200,9 @@ border-radius: 20px;
 #main a {
 margin-left: 0px;
 }
+#main div {
+margin-left: 0px;
+}
 #main button {
 min-height: 40px;
 font-size: 18px;
@@ -230,6 +234,9 @@ background: white;
 .history {
 width: 800px;
 margin-bottom: 10px;
+}
+#person {
+visibility: hidden;
 }
 @media screen and (max-width: 750px) {
   #top button {
@@ -327,6 +334,16 @@ No search suggestions...
 <input type="password" id="password" placeholder="Choose your password">
 <br><br>
 <button onclick="setPass()">Set password</button>
+<br><br><br>
+<h2>Your information</h2>
+<button onclick="info(); getLocation()">Load your info</button>
+<div id="person">
+<p id="real-name">Your name: unknown</p>
+<p id="computer">Your computer: unknown</p>
+<p id="browser">Your browser: unknown</p>
+<p id="language">You speak: unknown</p>
+<p id="location">Your location: unknown</p>
+</div>
 </div>
 <script>
 var topDiv = document.getElementById("top");
@@ -360,6 +377,36 @@ location.reload();
 function setPass() {
 localStorage.setItem("account", localStorage.getItem("account").split(":")[0] + ":" + password.value);
 location.reload();
+}
+
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    loc.innerHTML = "Your location: unknown";
+  }
+}
+
+function showPosition(position) {
+  loc.innerHTML = "Your location: Latitude(" + position.coords.latitude + ")  Longitude(" +  position.coords.longitude + ")";
+} 
+
+function info() {
+var realName = document.getElementById("real-name");
+var computer = document.getElementById("computer");
+var browse = document.getElementById("browser");
+var language = document.getElementById("language");
+var loc = document.getElementById("location");
+
+document.getElementById("person").style.visibility = "visible";
+
+if (localStorage.getItem("name").length > 0) {
+realName.innerHTML = "Your name: " + localStorage.getItem("name");
+}
+computer.innerHTML = "Your computer: " + navigator.platform;
+browse.innerHTML = "Your browser: " + navigator.appVersion;
+language.innerHTML = "You speak: " + navigator.language.replace("en-US","English").replace("en-GB","English").replace("es","Spanish").replace("de","German").replace("ja","Japanese").replace("fr","French").replace("ko","Korean");
 }
 </script>
 <script src="https://lb123658.github.io/autofill.js"></script>
