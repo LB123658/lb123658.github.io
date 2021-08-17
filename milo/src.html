@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -98,6 +99,8 @@
 			margin-bottom: 10px;
 			max-width: 600px;
 			transition: 0.5s padding;
+            overflow: hidden;
+            text-overflow: ellipsis; 
 		}
 
 		.a:hover {
@@ -119,6 +122,8 @@
 			margin-bottom: 10px;
 			max-width: 600px;
 			transition: 0.5s padding;
+            overflow: hidden;
+            text-overflow: ellipsis; 
 		}
 
 		.b:hover {
@@ -199,7 +204,7 @@ var txt = document.getElementById("input").value;
 if (txt == "") {
 var ans = "Sorry. I didn't get that. Is there anything else I can do for you?";
 } else if (txt.split(" up")[0] == "look") {
-var ans = "I will look up '" + txt.split("up")[1] + "' for you.";
+var ans = "I found " + txt.split("up ")[1] + " for you.";
 window.open("https://duckduckgo.com/?q=" + txt.split("up")[1], "_blank");
 } else if (txt.split("//")[0] == "https:") {
 var ans = "I will open " + txt.split("//")[1];
@@ -300,7 +305,7 @@ ans = "It's nice to know that you're " + txt.split("im ")[1] + ".";
 } else if (txt.split("do")[0] == "how ") {
 ans = "I do not actually know how " + txt.split("how do ")[1] + ", but I will try to help.";
 } else if (txt.split(" ")[0] == "how") {
-ans = "I do not actually know how " + txt.split("how ")[1] + ", but I will try to help.";
+ans = "I do not actually know how " + txt.split("how ")[1] + ". I was wondering that too.";
 } else if (txt == "whats your name") {
 ans = "My name is Milo. What's your name?";
 } else if (txt == "what's your name") {
@@ -318,7 +323,35 @@ ans = "I do not actually know what " + txt.split("what is ")[1] + " is, but I wi
 } else if (txt.search("name") > -1) {
 ans = "Hello, " + txt.split("is ")[1] + "!";
 getUserInfo();
-} else {
+} else if (txt.search("who am i") > -1) {
+ans = "You are " + localStorage.getItem("name") + ".";
+} else if (txt.search("who i am") > -1) {
+ans = "You are " + localStorage.getItem("name") + ".";
+} else if (txt.search("am i") > -1) {
+ans = "I think you are " + txt.split("am i")[1] + " but that's just my opinion.";
+} else if (txt.search("are you") > -1) {
+ans = "I am " + txt.split("are you")[1] + ". Are you?";
+} else if (txt.search("are they") > -1) {
+ans = "They are " + txt.split("are they")[1] + ". Are you?";
+} else if (txt.search("are we") > -1) {
+ans = "We are definitely " + txt.split("are we")[1] + ".";
+} else if (txt.search("is") > -1) {
+ans = "I think it is " + txt.split("is")[1] + " but I don't know for sure.";
+} else if (txt.search("you are") > -1) {
+ans = "Well you are " + txt.split("you are")[1] + ".";
+} else if (txt.search("i am") > -1) {
+ans = "You actually are " + txt.split("i am")[1] + ".";
+} else if (txt.search("we are") > -1) {
+ans = "We actually are " + txt.split("we are")[1] + ".";
+} else if (txt.search("they are") > -1) {
+ans = "They actually are " + txt.split("they are")[1] + ".";
+} else if (txt.length < 5) {
+ans = txt + " 😂";
+} else if (txt.split(" ")[0] == "img:") {
+var ans = "<img src='" + txt.split(" ")[1] + "' style='width:100%; border-radius:8px;'></img>";
+}
+
+else {
 var ans = "Sorry, I didn't get that.";
 }
 
