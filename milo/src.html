@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -187,7 +186,7 @@ function question() {
 var txt = document.getElementById("input").value;
 
 var button = document.createElement("BUTTON");
-button.innerHTML = "You: " + txt;
+button.innerHTML = "You: " + txt.replace(/:bison:/g,"<img src='https://discord.com/assets/4074c31ae3588a394a7a78c5e80c7d98.svg' style='width:40px;'></img>").replace(/:faroe:/g,"<img src='https://discord.com/assets/04b0bd887b326b6d1bb2fd83bafd7f1f.svg' style='width:40px;'></img>").replace(/:microbe:/g,"<img src='https://discord.com/assets/c166700764a11c7d30026d4d825b235a.svg' style='width:40px;'></img>").replace(/:goat:/g,"<img src='https://discord.com/assets/55aecf5f15c4f21115d04f8cd63fb3ab.svg' style='width:40px;'></img>").replace(/:parrot:/g,"<img src='https://discord.com/assets/ef02cd8645bcdff874d23500b2b516fd.svg' style='width:40px;'></img>").replace(/:avocado:/g,"<img src='https://discord.com/assets/e4b6d2720cd87cfdffe875ecc469f710.svg' style='width:40px;'></img>").replace(/:money:/g,"<img src='https://discord.com/assets/e6025571aaedfcbedc52c5e38e5a1017.svg' style='width:40px;'></img>");
 button.className = "a";
 button.ondblclick = function() {this.remove();};
 document.getElementById("container").appendChild(button);
@@ -206,6 +205,8 @@ var ans = "Sorry. I didn't get that. Is there anything else I can do for you?";
 } else if (txt.split(" up")[0] == "look") {
 var ans = "I found " + txt.split("up ")[1] + " for you.";
 window.open("https://duckduckgo.com/?q=" + txt.split("up")[1], "_blank");
+} else if (txt.search(":") > -1) {
+var ans = "Nice " + txt.replace(/: :/g," and ").replace(/:/g,"") + ".";
 } else if (txt.split("//")[0] == "https:") {
 var ans = "I will open " + txt.split("//")[1];
 window.open(txt, "_blank");
@@ -349,9 +350,17 @@ ans = "They actually are " + txt.split("they are")[1] + ".";
 ans = txt + " 😂";
 } else if (txt.split(" ")[0] == "img:") {
 var ans = "<img src='" + txt.split(" ")[1] + "' style='width:100%; border-radius:8px;'></img>";
-}
-
-else {
+} else if (txt.search("thanks") > -1) {
+var ans = "You're welcome.";
+} else if (txt.search("thank you") > -1) {
+var ans = "You're welcome.";
+} else if (txt.search("thx") > -1) {
+var ans = "You're welcome.";
+} else if (txt.search("open settings") > -1) {
+var ans = "If you would like to access Milo's settings here they are:<br>Type \"clear all texts\" to clear conversation.<br><br>New updates:<br>Emojis. Just type :bison: for a bison emoji, :microbe: for a bacteria emoji, :money: for a money emoji, :goat: for a goat, :parrot: for a parrot, or :faroe: for a Faroe Islands flag. <br><br>Just type \"open settings\" to get this message again.";
+} else if (txt == "clear all texts") {
+var ans = "I'm sorry but I cannot do that, " + localStorage.getItem("name") + ".";
+} else {
 var ans = "Sorry, I didn't get that.";
 }
 
