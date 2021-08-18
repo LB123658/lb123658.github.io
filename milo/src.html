@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -205,10 +206,8 @@ var ans = "Sorry. I didn't get that. Is there anything else I can do for you?";
 } else if (txt.split(" up")[0] == "look") {
 var ans = "I found " + txt.split("up ")[1] + " for you.";
 window.open("https://duckduckgo.com/?q=" + txt.split("up")[1], "_blank");
-} else if (txt.search(":") > -1) {
-var ans = "Nice " + txt.replace(/: :/g," and ").replace(/:/g,"") + ".";
 } else if (txt.split("//")[0] == "https:") {
-var ans = "I will open " + txt.split("//")[1];
+var ans = "I opened " + txt.split("//")[1] + " for you.";
 window.open(txt, "_blank");
 } else if (txt == "hello") {
 var ans = "Hello.";
@@ -336,8 +335,8 @@ ans = "I am " + txt.split("are you")[1] + ". Are you?";
 ans = "They are " + txt.split("are they")[1] + ". Are you?";
 } else if (txt.search("are we") > -1) {
 ans = "We are definitely " + txt.split("are we")[1] + ".";
-} else if (txt.search("is") > -1) {
-ans = "I think it is " + txt.split("is")[1] + " but I don't know for sure.";
+} else if (txt.search("is ") > -1) {
+ans = "I think it is " + txt.split("is ")[1] + " but I don't know for sure.";
 } else if (txt.search("you are") > -1) {
 ans = "Well you are " + txt.split("you are")[1] + ".";
 } else if (txt.search("i am") > -1) {
@@ -360,6 +359,18 @@ var ans = "You're welcome.";
 var ans = "If you would like to access Milo's settings here they are:<br>Type \"clear all texts\" to clear conversation.<br><br>New updates:<br>Emojis. Just type :bison: for a bison emoji, :microbe: for a bacteria emoji, :money: for a money emoji, :goat: for a goat, :parrot: for a parrot, or :faroe: for a Faroe Islands flag. <br><br>Just type \"open settings\" to get this message again.";
 } else if (txt == "clear all texts") {
 var ans = "I'm sorry but I cannot do that, " + localStorage.getItem("name") + ".";
+} else if (txt.search(":bison:") > -1) {
+var ans = "Nice " + txt.replace(/: :/g," and ").replace(/:/g,"") + ".";
+} else if (txt.search("microbe") > -1) {
+var ans = "Nice " + txt.replace(/: :/g," and ").replace(/:/g,"") + ".";
+} else if (txt.search("goat") > -1) {
+var ans = "Nice " + txt.replace(/: :/g," and ").replace(/:/g,"") + ".";
+} else if (txt.search("parrot") > -1) {
+var ans = "Nice " + txt.replace(/: :/g," and ").replace(/:/g,"") + ".";
+} else if (txt.search("faroe") > -1) {
+var ans = "Nice " + txt.replace(/: :/g," and ").replace(/:/g,"").replace(/faroe/g,"Faroe Islands flag") + ".";
+} else if (txt.search("money") > -1) {
+var ans = "Nice " + txt.replace(/: :/g," and ").replace(/:/g,"") + ".";
 } else {
 var ans = "Sorry, I didn't get that.";
 }
