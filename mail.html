@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Photon Mail</title>
+<link rel="icon" href="https://lb123658.github.io/galaxy/favicon.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+<style>
+* {
+font-family: 'Heebo', sans-serif;
+cursor: default;
+user-select: none;
+-webkit-user-select: none;
+}
+::selection {
+background: #5765f2;
+}
+:focus {
+outline: none;
+}
+#top {
+position: fixed;
+top: 0px;
+left: 0px;
+height: 70px;
+width: 100%;
+background: #5765f2;
+z-index: 1;
+}
+#top h2 {
+color: white;
+margin-left: 20px;
+}
+#top button {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: transparent;
+color: white;
+border: none;
+float: right;
+margin: 10px 20px 10px 0px;
+transition: background 0.7s, color 0.3s;
+}
+#top button:hover {
+color: #5765f2;
+background: white;
+}
+button span {
+text-align: center;
+margin-top: 5px;
+}
+#alert {
+position: fixed;
+top: 200px;
+left: 50%;
+width: 300px;
+margin-left: -170px;
+border-radius: 8px;
+background: #5765f2;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+color: white;
+font-size: 20px;
+padding: 20px;
+visibility: hidden;
+}
+#alert button {
+height: 50px;
+color: #5765f2;
+border-radius: 25px;
+border: none;
+font-size: 20px;
+padding: 10px 20px 10px 20px;
+float: right;
+transition: transform 0.2s;
+}
+#alert button:hover {
+transform: scale(1.1);
+}
+#inbox {
+position: absolute;
+top: 100px;
+left: 10%;
+width: 80%;
+border-radius: 0px;
+background: #e8e6eb;
+height: 100px;
+}
+</style>
+</head>
+<body>
+<div id="top">
+<button onclick="notify('Photon apps are not available right now.','OK','')"><span class="material-icons">apps</span></button>
+<button onclick="notify('Are you sure you want to delete all messages?','Delete all','')"><span class="material-icons">delete</span></button>
+<button onclick="notify('Are you sure you want to reload this page?','Reload','location.reload();')"
+><span class="material-icons">refresh</span></button>
+<h2>Photon Mail<h2>
+</div>
+
+<!-- alert div -->
+<div id="alert" ondblclick="hide(alertDiv);" onclick="hide(alertDiv);">
+This is a test that came up accidentally.<br>
+<button>Close</button>
+</div>
+
+<div id="inbox">
+</div>
+<script>
+var alertDiv = document.getElementById("alert");
+function notify(text,button,funct) {
+alertDiv.style.visibility = "visible";
+alertDiv.innerHTML = "<p>" + text + "</p><button id='alertButton' onclick='" + funct + "'>" + button + "</button>";
+}
+function hide(elmnt) {
+elmnt.style.visibility = "hidden";
+}
+function apps() {
+location.replace("https://lb123658.github.io");
+}
+</script>
+</body>
+</html>
