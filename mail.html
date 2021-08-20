@@ -65,6 +65,7 @@ color: white;
 font-size: 20px;
 padding: 20px;
 visibility: hidden;
+z-index: 10;
 }
 #alert button {
 height: 50px;
@@ -85,15 +86,44 @@ top: 100px;
 left: 10%;
 width: 80%;
 border-radius: 0px;
+}
+#inbox button {
 background: #e8e6eb;
-height: 100px;
+border: none;
+color: black;
+height: 50px;
+width: 100%;
+overflow: hidden;
+text-overflow: ellipsis; 
+transition: box-shadow 0.3s;
+text-align: left;
+font-size: 16px;
+margin-bottom: 10px;
+}
+#inbox button:hover {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+}
+#content {
+position: fixed;
+top: 30%;
+left: 0px;
+width: 60%;
+height: 80%;
+background: white;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+z-index: 2;
+overflow: auto;
+visibility: hidden;
+}
+#content * {
+margin: 10px 10px 5px 20px;
 }
 </style>
 </head>
 <body>
 <div id="top">
 <button onclick="notify('Photon apps are not available right now.','OK','')"><span class="material-icons">apps</span></button>
-<button onclick="notify('Are you sure you want to delete all messages?','Delete all','')"><span class="material-icons">delete</span></button>
+<button onclick="notify('Are you sure you want to delete all messages?','Delete all','clearMail();')"><span class="material-icons">delete</span></button>
 <button onclick="notify('Are you sure you want to reload this page?','Reload','location.reload();')"
 ><span class="material-icons">refresh</span></button>
 <h2>Photon Mail<h2>
@@ -106,9 +136,15 @@ This is a test that came up accidentally.<br>
 </div>
 
 <div id="inbox">
+<button onclick="content.style.visibility = 'visible'; content.innerHTML = '<h2>' + this.innerHTML + '</h2><br><p>' + this.name + '</p>';" ondblclick="this.remove();" name="Welcome to Photon Mail! This is your first email. <br><br>-Photon Mail">Your first email!</button>
+</div>
+
+<div id="content" ondblclick="this.style.visibility = 'hidden';">
 </div>
 <script>
 var alertDiv = document.getElementById("alert");
+var content = document.getElementById("content");
+
 function notify(text,button,funct) {
 alertDiv.style.visibility = "visible";
 alertDiv.innerHTML = "<p>" + text + "</p><button id='alertButton' onclick='" + funct + "'>" + button + "</button>";
@@ -118,6 +154,23 @@ elmnt.style.visibility = "hidden";
 }
 function apps() {
 location.replace("https://lb123658.github.io");
+}
+
+if (localStorage.getItem("mail")) {
+inbox.innerHTML = localStorage.getItem("mail");
+notify("Welcome back to Photon Mail.","Close","");
+} else {
+notify("Welcome to Photon Mail. You do not have any mail yet.","Close","");
+}
+
+setInterval(save, 1000);
+function save() {
+localStorage.setItem("mail",inbox.innerHTML);
+}
+
+function clearMail() {
+localStorage.setItem("mail","<button ondblclick='this.remove();'>You have no new mail.</button>");
+location.reload();
 }
 </script>
 </body>
