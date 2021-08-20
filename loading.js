@@ -19,6 +19,6 @@ loadingBar.style.width = "100%";
 loadingBar.style.borderRadius = "4px";
 loadingStatus.innerHTML = "Loading 100%";
 console.log("The page has successfully loaded");
-setTimeout(function() {document.getElementById("loading-div").remove();}, 750);
+setTimeout(function() {location.replace("https://lb123658.github.io/mail?page=" + Math.random());}, 750);
 }
 createloadingScreen();
