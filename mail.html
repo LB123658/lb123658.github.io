@@ -16,6 +16,7 @@ user-select: none;
 }
 ::selection {
 background: #5765f2;
+color: white;
 }
 :focus {
 outline: none;
@@ -107,7 +108,7 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
 position: fixed;
 top: 30%;
 left: 0px;
-width: 60%;
+width: 50%;
 height: 80%;
 background: white;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
@@ -118,14 +119,61 @@ visibility: hidden;
 #content * {
 margin: 10px 10px 5px 20px;
 }
+#compose {
+position: fixed;
+top: 30%;
+right: 0px;
+width: 50%;
+height: 80%;
+background: white;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+z-index: 2;
+overflow: auto;
+visibility: hidden;
+}
+#compose input {
+height: 40px;
+cursor: auto;
+width: 98%;
+font-size: 20px;
+border: 2px solid grey;
+}
+#compose input:focus {
+border: 2px solid #5765f2;
+}
+#compose textarea {
+width: 98%;
+border: grey;
+margin-top: 10px;
+height: 50%;
+cursor: auto;
+border: 2px solid grey;
+}
+#compose textarea:focus {
+border: 2px solid #5765f2;
+}
+#compose button {
+height: 50px;
+color: white;
+border-radius: 25px;
+border: none;
+font-size: 20px;
+padding: 10px 20px 10px 20px;
+background: #5765f2;
+transition: transform 0.2s;
+margin: 10px 20px 10px 20px;
+}
+#compose button:hover {
+transform: scale(1.1);
+}
 </style>
 </head>
 <body>
 <div id="top">
 <button onclick="notify('Photon apps are not available right now.','OK','')"><span class="material-icons">apps</span></button>
 <button onclick="notify('Are you sure you want to delete all messages?','Delete all','clearMail();')"><span class="material-icons">delete</span></button>
-<button onclick="notify('Are you sure you want to reload this page?','Reload','location.reload();')"
-><span class="material-icons">refresh</span></button>
+<button onclick="notify('Are you sure you want to reload this page?','Reload','location.reload();')"><span class="material-icons">refresh</span></button>
+<button onclick="show(compose);"><span class="material-icons">edit</span></button>
 <h2>Photon Mail<h2>
 </div>
 
@@ -136,14 +184,25 @@ This is a test that came up accidentally.<br>
 </div>
 
 <div id="inbox">
-<button onclick="content.style.visibility = 'visible'; content.innerHTML = '<h2>' + this.innerHTML + '</h2><br><p>' + this.name + '</p>';" ondblclick="this.remove();" name="Welcome to Photon Mail! This is your first email. <br><br>-Photon Mail">Your first email!</button>
+<button onclick="content.style.visibility = 'visible'; content.innerHTML = '<h2>' + this.innerHTML + '</h2><br><p>' + this.name + '</p>';" ondblclick="this.remove(); updateStorage()" name="Welcome to Photon Mail! This is your first email. <br><br>-Photon Mail">Your first email!</button>
 </div>
 
-<div id="content" ondblclick="this.style.visibility = 'hidden';">
+<div id="content" ondblclick="this.style.visibility = 'hidden';"></div>
+
+<div id="compose">
+  <input type="text" id="title" autocomplete="off" placeholder="Email title">
+  <textarea id="letter" placeholder="Type email here"></textarea>
+  <button onclick="send()">Send</button>
+  <button onclick="hide(compose);" style="background:grey;float:right;">Close</button>
 </div>
 <script>
 var alertDiv = document.getElementById("alert");
 var content = document.getElementById("content");
+var compose = document.getElementById("compose");
+
+//email contents
+var title = document.getElementById("title");
+var letter = document.getElementById("letter");
 
 function notify(text,button,funct) {
 alertDiv.style.visibility = "visible";
@@ -152,25 +211,45 @@ alertDiv.innerHTML = "<p>" + text + "</p><button id='alertButton' onclick='" + f
 function hide(elmnt) {
 elmnt.style.visibility = "hidden";
 }
+function show(elmnt) {
+elmnt.style.visibility = "visible";
+}
 function apps() {
 location.replace("https://lb123658.github.io");
 }
 
 if (localStorage.getItem("mail")) {
 inbox.innerHTML = localStorage.getItem("mail");
-notify("Welcome back to Photon Mail.","Close","");
 } else {
 notify("Welcome to Photon Mail. You do not have any mail yet.","Close","");
 }
 
-setInterval(save, 1000);
-function save() {
-localStorage.setItem("mail",inbox.innerHTML);
+if (inbox.innerHTML.length < 5) {
+inbox.innerHTML = "<button ondblclick='this.remove();'>You have no new mail.</button>";
+} else {
+var number = document.querySelectorAll('#inbox button');
+photonMail("You have " + number.length + " new emails.","You have " + number.length + " new emails.!!!!!!!");
 }
 
 function clearMail() {
 localStorage.setItem("mail","<button ondblclick='this.remove();'>You have no new mail.</button>");
 location.reload();
+}
+
+function send() {
+var emailContent = "<button onclick=\"content.style.visibility = 'visible'; content.innerHTML = '<h2>' + this.innerHTML + '</h2><br><p>' + this.name + '</p>';\" ondblclick=\"this.remove(); updateStorage()\" name=\"" + letter.value + "\">" + title.value + "</button>";
+var previousMail = localStorage.getItem("mail");
+localStorage.setItem("mail",emailContent + previousMail);
+notify("Reload the page to see your email in your inbox.","Reload","location.reload()");
+}
+function updateStorage() {
+localStorage.setItem("mail",inbox.innerHTML);
+}
+
+function photonMail(label,words) {
+var emailContent = "<button onclick=\"content.style.visibility = 'visible'; content.innerHTML = '<h2>' + this.innerHTML + '</h2><br><p>' + this.name + '</p>';\" ondblclick=\"this.remove(); updateStorage()\" name=\"" + words + "\">" + label + "</button>";
+var previousMail = localStorage.getItem("mail");
+localStorage.setItem("mail",emailContent + previousMail);
 }
 </script>
 </body>
