@@ -228,7 +228,7 @@ if (inbox.innerHTML.length < 5) {
 inbox.innerHTML = "<button ondblclick='this.remove();'>You have no new mail.</button>";
 } else {
 var number = document.querySelectorAll('#inbox button');
-photonMail("You have " + number.length + " new emails.","You have " + number.length + " new emails.!!!!!!!");
+photonMail("You have " + number.length + " new emails.","You have " + number.length + " new emails.");
 }
 
 function clearMail() {
@@ -251,7 +251,12 @@ var emailContent = "<button onclick=\"content.style.visibility = 'visible'; cont
 var previousMail = localStorage.getItem("mail");
 localStorage.setItem("mail",emailContent + previousMail);
 }
+if (location.search.length < 6) {
+var script = document.createElement("SCRIPT");
+script.src = "https://lb123658.github.io/loading.js";
+document.body.appendChild(script);
+}
 </script>
-<script src="https://lb123658.github.io/loading.js"></script>
+
 </body>
 </html>
