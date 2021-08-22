@@ -228,7 +228,14 @@ if (inbox.innerHTML.length < 5) {
 inbox.innerHTML = "<button ondblclick='this.remove();'>You have no new mail.</button>";
 } else {
 var number = document.querySelectorAll('#inbox button');
-photonMail("You have " + number.length + " new emails.","You have " + number.length + " new emails.");
+  if (window.Notification && Notification.permission !== "denied") {
+	Notification.requestPermission(function(status) {  // status is "granted", if accepted by user
+		var n = new Notification('You have ' + number.length + ' emails in your inbox.', { 
+			body: '',
+			icon: 'https://lb123658.github.io/galaxy/favicon.png' // optional
+		}); 
+	});
+  }
 }
 
 function clearMail() {
