@@ -100,6 +100,7 @@ top: 80px;
 left: 5%;
 width: 90%;
 height: 100%;
+text-align: center;
 }
 #content h2 {
 font-size: 50px;
@@ -135,7 +136,7 @@ margin: 10px;
 
 <div id="top">
   <button class="option">Photon Music</button>
-  <button class="option" style="float:right;">Sign in</button>
+  <button class="option" style="float:right;" id="downloadprompt">Download</button>
   <button class="option" style="float:right;"><span class="material-icons">upload</span> Upload</button>
   <input class="option" type="text" placeholder="Find music" style="float:right;height:37px;" autocompleter="off">
 </div>
@@ -143,7 +144,7 @@ margin: 10px;
 <div id="bottom">
   <button class="option"><span class="material-icons">play_circle</span></button>
   <button class="option"><span class="material-icons">menu</span></button>
-  <button class="option" onclick="this.style.background = '#1DB954';"><span class="material-icons">thumb_up</span></button>
+  <button class="option" onclick="this.style.background = '#1DB954';this.style.border = '2px solid #181818';"><span class="material-icons">thumb_up</span></button>
   <div id="background">
     <button id="duration"></button>
     <p>No track selected</p>
@@ -164,9 +165,19 @@ content.innerHTML = text;
 function loadAlbum(img,title) {
 content.innerHTML = content.innerHTML + "<div class='album'><img src='" + img + "'><p>" + title + "</p></div>";
 }
-load("<h2>Photon Music</h2>");
-loadAlbum("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.popelera.net%2Fwp-content%2Fuploads%2F2020%2F11%2Fbad-bunny-el-ultimo-tour.jpg&f=1&nofb=1","El Ultimo Tour del Mundo");
+load("<h2>Your Music</h2>");
+loadAlbum("https://lb123658.github.io/music/images/elmos_birthday.jpg","Elmo's Birthday");
 
+
+</script>
+<script>
+var button = document.getElementById("downloadprompt");
+if (window.location.href == "https://lb123658.github.io/music") {
+button.remove();
+} else {
+button.innerHTML = "Update";
+button.onclick = function() {load("<h2>Update the music web app</h2><a href='https://lb123658.github.io/music' download><button class='option'>Download</button></a>");};
+}
 
 </script>
 </body>
