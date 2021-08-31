@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Photon Music</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+<link rel='icon' href='https://lb123658.github.io/galaxy/favicon.png' type='image/png'/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+<style>
+body {
+background: #2F3137;
+}
+* {
+font-family: 'Nunito', sans-serif;
+color: white;
+user-select: none;
+-webkit-user-select: none;
+}
+:focus {
+outline: none;
+}
+input {
+-webkit-user-select: auto;
+}
+.option {
+background: white;
+height: 40px;
+margin: 20px 10px 20px 10px;
+color: black;
+border: 2px solid white;
+border-radius: 20px;
+font-size: 20px;
+padding: 0px 10px 0px 10px;
+transition: transform 0.2s;
+}
+.option:hover {
+transform: scale(1.075);
+}
+.option:focus {
+border: 2px solid #181818;
+box-shadow: 0 0 0 3pt #1DB954;
+}
+#top {
+position: fixed;
+background: #181818;
+top: 0px;
+left: 0px;
+height: 80px;
+width: 100%;
+z-index: 1;
+overflow: hidden;
+}
+.material-icons {
+color: black;
+}
+button span {
+float: left;
+}
+</style>
+</head>
+<body>
+
+<div id="top">
+  <button class="option">Photon Music</button>
+  <button class="option" style="float:right;">Sign in</button>
+  <button class="option" style="float:right;"><span class="material-icons">upload</span> Upload</button>
+  <input class="option" type="text" placeholder="Find music" style="float:right;height:37px;" autocompleter="off">
+</div>
+
+</body>
+</html>
