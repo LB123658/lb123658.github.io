@@ -51,11 +51,83 @@ width: 100%;
 z-index: 1;
 overflow: hidden;
 }
+#bottom {
+position: fixed;
+background: #181818;
+bottom: 0px;
+left: 0px;
+height: 80px;
+width: 100%;
+z-index: 1;
+overflow: hidden;
+}
 .material-icons {
 color: black;
 }
 button span {
 float: left;
+}
+#background {
+position: absolute;
+top: 20px;
+left: 220px;
+width: 60%;
+height: 40px;
+border-radius: 0px;
+background: #2F3137;
+}
+#duration {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 50%;
+height: 100%;
+border: none;
+background: #1DB954;
+}
+#background p {
+z-index: 1;
+float: left;
+color: white;
+font-size: 18px;
+position: absolute;
+top: -10px;
+left: 10px;
+}
+#content {
+position: absolute;
+top: 80px;
+left: 5%;
+width: 90%;
+height: 100%;
+}
+#content h2 {
+font-size: 50px;
+color: white;
+}
+#content .album {
+float: left;
+}
+.album {
+width: 200px;
+min-height: 220px;
+background: #181818;
+border-radius: 10px;
+margin: 20px;
+}
+.album:hover {
+opacity: 0.8;
+}
+.album img {
+width: 190px;
+height: 190px;
+margin: 5px;
+border-radius: 10px;
+}
+.album p {
+color: white;
+font-size: 16px;
+margin: 10px;
 }
 </style>
 </head>
@@ -68,5 +140,34 @@ float: left;
   <input class="option" type="text" placeholder="Find music" style="float:right;height:37px;" autocompleter="off">
 </div>
 
+<div id="bottom">
+  <button class="option"><span class="material-icons">play_circle</span></button>
+  <button class="option"><span class="material-icons">menu</span></button>
+  <button class="option" onclick="this.style.background = '#1DB954';"><span class="material-icons">thumb_up</span></button>
+  <div id="background">
+    <button id="duration"></button>
+    <p>No track selected</p>
+  </div>
+</div>
+
+<div id="content"></div>
+<script>
+var background = document.getElementById("background");
+var content = document.getElementById("content");
+
+document.body.onload = function() {background.style.width = window.innerWidth - 240 + "px"; content.style.height = window.innerHeight - 160 + "px";};
+document.body.onresize = function() {background.style.width = window.innerWidth - 240 + "px"; content.style.height = window.innerHeight - 160 + "px";};
+
+function load(text) {
+content.innerHTML = text;
+}
+function loadAlbum(img,title) {
+content.innerHTML = content.innerHTML + "<div class='album'><img src='" + img + "'><p>" + title + "</p></div>";
+}
+load("<h2>Photon Music</h2>");
+loadAlbum("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.popelera.net%2Fwp-content%2Fuploads%2F2020%2F11%2Fbad-bunny-el-ultimo-tour.jpg&f=1&nofb=1","El Ultimo Tour del Mundo");
+
+
+</script>
 </body>
 </html>
