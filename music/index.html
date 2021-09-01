@@ -130,6 +130,14 @@ color: white;
 font-size: 16px;
 margin: 10px;
 }
+.off {
+opacity: 0.5;
+pointer-events: none;
+}
+@keyframes go {
+0% {width:0%}
+100% {width:100%}
+}
 </style>
 </head>
 <body>
@@ -137,36 +145,67 @@ margin: 10px;
 <div id="top">
   <button class="option">Photon Music</button>
   <button class="option" style="float:right;" id="downloadprompt">Download</button>
-  <button class="option" style="float:right;"><span class="material-icons">upload</span> Upload</button>
+  <button class="option off" style="float:right;"><span class="material-icons">upload</span> Upload</button>
   <input class="option" type="text" placeholder="Find music" style="float:right;height:37px;" autocompleter="off">
 </div>
 
 <div id="bottom">
-  <button class="option"><span class="material-icons">play_circle</span></button>
-  <button class="option"><span class="material-icons">menu</span></button>
-  <button class="option" onclick="this.style.background = '#1DB954';this.style.border = '2px solid #181818';"><span class="material-icons">thumb_up</span></button>
+  <button class="option" onclick="playMusic()" id="pauseplay"><span class="material-icons">play_circle</span></button>
+  <button class="option off"><span class="material-icons">menu</span></button>
+  <button class="option off" onclick="this.style.background = '#1DB954';this.style.border = '2px solid #181818';"><span class="material-icons">thumb_up</span></button>
   <div id="background">
     <button id="duration"></button>
-    <p>No track selected</p>
+    <p id="title">No track selected</p>
   </div>
 </div>
+
+<!-- audio player -->
+<audio id="audio">
+  <source src="#">
+</audio>
 
 <div id="content"></div>
 <script>
 var background = document.getElementById("background");
 var content = document.getElementById("content");
+var pauseplay = document.getElementById("pauseplay");
+var track = document.getElementById("audio");
+var title = document.getElementById("title");
+var dur = document.getElementById("duration");
 
 document.body.onload = function() {background.style.width = window.innerWidth - 240 + "px"; content.style.height = window.innerHeight - 160 + "px";};
 document.body.onresize = function() {background.style.width = window.innerWidth - 240 + "px"; content.style.height = window.innerHeight - 160 + "px";};
 
+
 function load(text) {
 content.innerHTML = text;
 }
-function loadAlbum(img,title) {
-content.innerHTML = content.innerHTML + "<div class='album'><img src='" + img + "'><p>" + title + "</p></div>";
+function loadAlbum(img,title,tru) {
+content.innerHTML = content.innerHTML + "<div class='album' onclick='loadSong()'><img src='" + img + "'><p>" + title + "</p></div>";
+localStorage.setItem("songTitle",title);
+localStorage.setItem("songSrc",tru);
 }
+function loadSong() {
+track.pause();
+pauseplay.innerHTML = "<span class='material-icons'>play_circle</span>";
+track.src = localStorage.getItem("songSrc");
+title.innerHTML = localStorage.getItem("songTitle");
+dur.style.animationName = "go";
+dur.style.animationDuration = track.duration + "s";
+}
+
+function playMusic() {
+  if (track.paused) {
+    track.play();
+    pauseplay.innerHTML = "<span class='material-icons'>pause</span>";
+  } else {
+    track.pause();
+    pauseplay.innerHTML = "<span class='material-icons'>play_circle</span>";
+  }
+}
+
 load("<h2>Your Music</h2>");
-loadAlbum("https://lb123658.github.io/music/images/elmos_birthday.jpg","Elmo's Birthday");
+loadAlbum("https://lb123658.github.io/music/images/elmos_birthday.jpg","Elmo's Birthday","https://lb123658.github.io/music/music/elmos_birthday.m4a");
 
 
 </script>
